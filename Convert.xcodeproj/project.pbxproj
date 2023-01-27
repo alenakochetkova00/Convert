@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F7A2034B2983009C008319C9 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A2034A2983009C008319C9 /* Currency.swift */; };
 		F7CB0F8029828F75009CD75B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CB0F7F29828F75009CD75B /* AppDelegate.swift */; };
 		F7CB0F8229828F75009CD75B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CB0F8129828F75009CD75B /* SceneDelegate.swift */; };
 		F7CB0F8429828F75009CD75B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CB0F8329828F75009CD75B /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F7A2034A2983009C008319C9 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		F7CB0F7C29828F75009CD75B /* Convert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Convert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7CB0F7F29828F75009CD75B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7CB0F8129828F75009CD75B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				F7CB0F7F29828F75009CD75B /* AppDelegate.swift */,
 				F7CB0F8129828F75009CD75B /* SceneDelegate.swift */,
 				F7CB0F8329828F75009CD75B /* ViewController.swift */,
+				F7A2034A2983009C008319C9 /* Currency.swift */,
 				F7CB0F8529828F75009CD75B /* Main.storyboard */,
 				F7CB0F8829828F75009CD75B /* Assets.xcassets */,
 				F7CB0F8A29828F75009CD75B /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7A2034B2983009C008319C9 /* Currency.swift in Sources */,
 				F7CB0F8429828F75009CD75B /* ViewController.swift in Sources */,
 				F7CB0F8029828F75009CD75B /* AppDelegate.swift in Sources */,
 				F7CB0F8229828F75009CD75B /* SceneDelegate.swift in Sources */,
