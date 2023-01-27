@@ -2,10 +2,8 @@
 import Foundation
 
 struct CurrencyConversion: Decodable {
+    let userId: Int
     let id: Int
-    let numCode: Int
-    let charCode: String
-    let nominal: Int
-    let name: String
-    let value: Float
+    let title: String
+    let completed: Bool
 }

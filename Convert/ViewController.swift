@@ -4,12 +4,15 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet var textLabel: UILabel!
+    
+    var currency: [CurrencyConversion] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        makeRequest(URL: "https://www.cbr.ru/scripts/XML_daily.asp?date_req=") { result in
-            print(result)
+        makeRequest(URL: "https://jsonplaceholder.typicode.com/todos") { result in
+            self.currency = result
+            print(self.currency[0].title)
         }
     }
     
