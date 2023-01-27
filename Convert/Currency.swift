@@ -1,11 +1,11 @@
 
 import Foundation
 
-struct CurrencyConversion {
-    let ID: Character?
-    let NumCode: Int?
-    let CharCode: String?
-    let Nominal: Int?
-    let Name: String?
-    let Value: Float?
+struct CurrencyConversion: Decodable {
+    let id: Int
+    let numCode: Int
+    let charCode: String
+    let nominal: Int
+    let name: String
+    let value: Float
 }
