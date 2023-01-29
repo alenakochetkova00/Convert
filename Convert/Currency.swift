@@ -1,9 +1,10 @@
 
 import Foundation
 
-struct CurrencyConversion: Decodable {
-    let userId: Int
-    let id: Int
-    let title: String
-    let completed: Bool
+struct CurrencyConversion: Codable {
+    let success: Bool
+    let terms, privacy: String
+    let timestamp: Int
+    let source: String
+    let quotes: [String: Double]
 }
