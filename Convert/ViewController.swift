@@ -6,7 +6,7 @@ class ViewController: UIViewController {
     
     var arrayKeys = [String]()
     var arrayValues = [Double]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
