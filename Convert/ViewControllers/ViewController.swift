@@ -25,6 +25,8 @@ class ViewController: UIViewController {
                     let parsingData = try JSONDecoder().decode(CurrencyConversion.self, from: data!)
                     self.arrayKeys.append(contentsOf: parsingData.rates.keys)
                     self.arrayValues.append(contentsOf: parsingData.rates.values)
+                    print(self.arrayKeys)
+                    print(self.arrayValues)
                 } catch {
                     print("error")
                 }
@@ -42,10 +44,9 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        cell?.textLabel?.text = arrayKeys[indexPath.row]
-        cell?.detailTextLabel?.text = String(arrayValues[indexPath.row])
-        return cell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = arrayKeys[indexPath.row]
+        return cell
     }
 }
 

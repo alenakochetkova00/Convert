@@ -39,6 +39,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F7ACCE7F29899E99003793B1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F7A2034A2983009C008319C9 /* Currency.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F7ACCE8029899EAE003793B1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F7CB0F8329828F75009CD75B /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F7ACCE8129899EBE003793B1 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				F7CB0F8D29828F75009CD75B /* Info.plist */,
+				F7CB0F7F29828F75009CD75B /* AppDelegate.swift */,
+				F7CB0F8129828F75009CD75B /* SceneDelegate.swift */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		F7ACCE8229899ECC003793B1 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				F7CB0F8529828F75009CD75B /* Main.storyboard */,
+				F7CB0F8A29828F75009CD75B /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		F7ACCE8329899EEE003793B1 /* Sourse */ = {
+			isa = PBXGroup;
+			children = (
+				F7CB0F8829828F75009CD75B /* Assets.xcassets */,
+			);
+			path = Sourse;
+			sourceTree = "<group>";
+		};
 		F7CB0F7329828F74009CD75B = {
 			isa = PBXGroup;
 			children = (
@@ -58,14 +101,11 @@
 		F7CB0F7E29828F75009CD75B /* Convert */ = {
 			isa = PBXGroup;
 			children = (
-				F7CB0F7F29828F75009CD75B /* AppDelegate.swift */,
-				F7CB0F8129828F75009CD75B /* SceneDelegate.swift */,
-				F7CB0F8329828F75009CD75B /* ViewController.swift */,
-				F7A2034A2983009C008319C9 /* Currency.swift */,
-				F7CB0F8529828F75009CD75B /* Main.storyboard */,
-				F7CB0F8829828F75009CD75B /* Assets.xcassets */,
-				F7CB0F8A29828F75009CD75B /* LaunchScreen.storyboard */,
-				F7CB0F8D29828F75009CD75B /* Info.plist */,
+				F7ACCE8329899EEE003793B1 /* Sourse */,
+				F7ACCE8229899ECC003793B1 /* Storyboards */,
+				F7ACCE8129899EBE003793B1 /* SupportingFiles */,
+				F7ACCE8029899EAE003793B1 /* ViewControllers */,
+				F7ACCE7F29899E99003793B1 /* Models */,
 			);
 			path = Convert;
 			sourceTree = "<group>";
@@ -293,7 +333,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5XHXPK88Y9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Convert/Info.plist;
+				INFOPLIST_FILE = Convert/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -321,7 +361,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5XHXPK88Y9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Convert/Info.plist;
+				INFOPLIST_FILE = Convert/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
