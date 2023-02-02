@@ -1,35 +1,21 @@
-
 import UIKit
 
 // MARK: - View View Controller (working with api)
 class ViewController: UIViewController {
     
-    var arrayKeys = [String]()
-    var arrayValues = [Double]()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        fetchingApiData(URL: "https://open.er-api.com/v6/latest/USD") { result in
-            print(result)
-        }
+        fetchingApiData()
     }
 
-    func fetchingApiData(URL url:String, completion: @escaping (CurrencyConversion) -> Void ) {
+    func fetchingApiData() {
+        var request = URLRequest(url: URL(string: "https://www.cbr-xml-daily.ru/daily_json.js")!)
+        request.allHTTPHeaderFields = ["authToken": "nil"]
+        request.httpMethod = "GET"
         
-        let url = URL(string: url)
-        let session = URLSession.shared
-        let dataTask = session.dataTask(with: url!) { data, response, error in
-            if data != nil && error == nil {
-                do {
-                    let parsingData = try JSONDecoder().decode(CurrencyConversion.self, from: data!)
-                    self.arrayKeys.append(contentsOf: parsingData.rates.keys)
-                    self.arrayValues.append(contentsOf: parsingData.rates.values)
-                    print(self.arrayKeys)
-                    print(self.arrayValues)
-                } catch {
-                    print("error")
-                }
+        let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let data = data, let joke = try? JSONDecoder().decode(CurrencyConversion.self, from: data) {
+                print(joke.previousURL)
             }
         }
         dataTask.resume()
@@ -40,12 +26,11 @@ class ViewController: UIViewController {
 //MARK: - Table View Controller (value output)
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        arrayKeys.count
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = arrayKeys[indexPath.row]
         return cell
     }
 }
