@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F73A7FFC298E73AA002C8B47 /* FileWifi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73A7FFB298E73AA002C8B47 /* FileWifi.swift */; };
+		F73A8000298E7C1A002C8B47 /* NetworkErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73A7FFF298E7C1A002C8B47 /* NetworkErrorViewController.swift */; };
 		F7A2034B2983009C008319C9 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A2034A2983009C008319C9 /* Currency.swift */; };
 		F7CB0F8029828F75009CD75B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CB0F7F29828F75009CD75B /* AppDelegate.swift */; };
 		F7CB0F8229828F75009CD75B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CB0F8129828F75009CD75B /* SceneDelegate.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F73A7FFB298E73AA002C8B47 /* FileWifi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileWifi.swift; sourceTree = "<group>"; };
+		F73A7FFF298E7C1A002C8B47 /* NetworkErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorViewController.swift; sourceTree = "<group>"; };
 		F7A2034A2983009C008319C9 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		F7CB0F7C29828F75009CD75B /* Convert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Convert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7CB0F7F29828F75009CD75B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +55,8 @@
 			isa = PBXGroup;
 			children = (
 				F7CB0F8329828F75009CD75B /* ViewController.swift */,
+				F73A7FFB298E73AA002C8B47 /* FileWifi.swift */,
+				F73A7FFF298E7C1A002C8B47 /* NetworkErrorViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -184,7 +190,9 @@
 				F7A2034B2983009C008319C9 /* Currency.swift in Sources */,
 				F7CB0F8429828F75009CD75B /* ViewController.swift in Sources */,
 				F7CB0F8029828F75009CD75B /* AppDelegate.swift in Sources */,
+				F73A8000298E7C1A002C8B47 /* NetworkErrorViewController.swift in Sources */,
 				F7CB0F8229828F75009CD75B /* SceneDelegate.swift in Sources */,
+				F73A7FFC298E73AA002C8B47 /* FileWifi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +347,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -367,6 +376,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

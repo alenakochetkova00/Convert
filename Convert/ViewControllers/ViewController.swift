@@ -1,27 +1,47 @@
 import UIKit
 
+
 // MARK: - View View Controller (working with api)
 class ViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
-    var list = [CurrencyConversion]()
+    var list = [String : Double]()
+    var listCurrencyText = [String]()
+    var listCurrencyValue = [Double]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if NetworkMonitor.shared.isConnected {
+            print("connected")
+        } else {
+            
+            navigationController?.setNavigationBarHidden(true, animated: true)
+            tableView.isHidden = true
+            let alert = UIAlertController(title: "ooops...", message: ("no internet connection"), preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "ok", style: UIAlertAction.Style.default, handler: { action in
+                UIControl().sendAction(#selector(NSXPCConnection.suspend),
+                                       to: UIApplication.shared, for: nil)
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+        
         getData()
     }
     
     func getData() {
         
-        let url = URL(string: "http://data.fixer.io/api/latest?access_key=4a990ae1cc0ef5a920e4c7e9eeb1123c")
+        let url = URL(string: "https://open.er-api.com/v6/latest/USD")
         
         let session = URLSession.shared
         
         let task = session.dataTask(with: url!) { (data, response, error) in
             
             if error != nil {
-                print(error?.localizedDescription)
-            }else {
+                print(error?.localizedDescription as Any)
+                
+            } else {
                 
                 if data != nil {
                     
@@ -30,19 +50,23 @@ class ViewController: UIViewController {
                         
                         print(jsonResponse)
                         
-                        DispatchQueue.main.async {
+                        DispatchQueue.main.async { [self] in
                             
-                            let array = Array(jsonResponse["rates"] as! [String : Any])
+                            let array = Array(jsonResponse["rates"] as! [String : Double])
 
                             for (key, value) in array {
                                
                                var entity = CurrencyConversion()
                                entity.code = key
-                               entity.value = value as! Double
-                               self.list.append(entity)
+                               entity.value = value
+                               self.list.updateValue(value, forKey: key)
+                                
                             }
 
-                            print(self.list.count)
+                            for (key, value) in Array(list).sorted(by: {$0.0 < $1.0}) {
+                                listCurrencyText.append(key)
+                                listCurrencyValue.append(value)
+                            }
                             self.tableView.reloadData()
                             
                         }
@@ -64,15 +88,14 @@ class ViewController: UIViewController {
 //MARK: - Table View Controller (value output)
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list.count
+        return listCurrencyText.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let curreny = list[indexPath.row]
         
-        cell.textLabel?.text = "\(curreny.code)"
-        cell.detailTextLabel?.text = "\(curreny.value)"
+        cell.textLabel?.text = listCurrencyText[indexPath.row]
+        cell.detailTextLabel?.text = String(listCurrencyValue[indexPath.row])
         
         return cell
     }
