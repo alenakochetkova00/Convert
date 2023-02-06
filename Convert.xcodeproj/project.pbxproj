@@ -16,6 +16,7 @@
 		F7CB0F8729828F75009CD75B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7CB0F8529828F75009CD75B /* Main.storyboard */; };
 		F7CB0F8929828F75009CD75B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7CB0F8829828F75009CD75B /* Assets.xcassets */; };
 		F7CB0F8C29828F75009CD75B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7CB0F8A29828F75009CD75B /* LaunchScreen.storyboard */; };
+		F7FAA0D72990F64100F92C9F /* myTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FAA0D62990F64100F92C9F /* myTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		F7CB0F8829828F75009CD75B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7CB0F8B29828F75009CD75B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F7CB0F8D29828F75009CD75B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7FAA0D62990F64100F92C9F /* myTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				F7CB0F8329828F75009CD75B /* ViewController.swift */,
 				F73A7FFB298E73AA002C8B47 /* FileWifi.swift */,
 				F73A7FFF298E7C1A002C8B47 /* NetworkErrorViewController.swift */,
+				F7FAA0D62990F64100F92C9F /* myTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7A2034B2983009C008319C9 /* Currency.swift in Sources */,
+				F7FAA0D72990F64100F92C9F /* myTableViewCell.swift in Sources */,
 				F7CB0F8429828F75009CD75B /* ViewController.swift in Sources */,
 				F7CB0F8029828F75009CD75B /* AppDelegate.swift in Sources */,
 				F73A8000298E7C1A002C8B47 /* NetworkErrorViewController.swift in Sources */,
