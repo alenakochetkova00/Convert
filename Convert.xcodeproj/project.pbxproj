@@ -8,30 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		F73A7FFC298E73AA002C8B47 /* FileWifi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73A7FFB298E73AA002C8B47 /* FileWifi.swift */; };
-		F73A8000298E7C1A002C8B47 /* NetworkErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73A7FFF298E7C1A002C8B47 /* NetworkErrorViewController.swift */; };
 		F7A2034B2983009C008319C9 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A2034A2983009C008319C9 /* Currency.swift */; };
 		F7CB0F8029828F75009CD75B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CB0F7F29828F75009CD75B /* AppDelegate.swift */; };
 		F7CB0F8229828F75009CD75B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CB0F8129828F75009CD75B /* SceneDelegate.swift */; };
-		F7CB0F8429828F75009CD75B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CB0F8329828F75009CD75B /* ViewController.swift */; };
+		F7CB0F8429828F75009CD75B /* AdditionalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CB0F8329828F75009CD75B /* AdditionalViewController.swift */; };
 		F7CB0F8729828F75009CD75B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7CB0F8529828F75009CD75B /* Main.storyboard */; };
 		F7CB0F8929828F75009CD75B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7CB0F8829828F75009CD75B /* Assets.xcassets */; };
 		F7CB0F8C29828F75009CD75B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7CB0F8A29828F75009CD75B /* LaunchScreen.storyboard */; };
-		F7FAA0D72990F64100F92C9F /* myTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FAA0D62990F64100F92C9F /* myTableViewCell.swift */; };
+		F7FAA0D72990F64100F92C9F /* AdditionalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FAA0D62990F64100F92C9F /* AdditionalTableViewCell.swift */; };
+		F7FAA0D92991732200F92C9F /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FAA0D82991732200F92C9F /* MainTableViewCell.swift */; };
+		F7FAA0DB2991736D00F92C9F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FAA0DA2991736D00F92C9F /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F73A7FFB298E73AA002C8B47 /* FileWifi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileWifi.swift; sourceTree = "<group>"; };
-		F73A7FFF298E7C1A002C8B47 /* NetworkErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorViewController.swift; sourceTree = "<group>"; };
 		F7A2034A2983009C008319C9 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		F7CB0F7C29828F75009CD75B /* Convert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Convert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7CB0F7F29828F75009CD75B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7CB0F8129828F75009CD75B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F7CB0F8329828F75009CD75B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F7CB0F8329828F75009CD75B /* AdditionalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalViewController.swift; sourceTree = "<group>"; };
 		F7CB0F8629828F75009CD75B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F7CB0F8829828F75009CD75B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7CB0F8B29828F75009CD75B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F7CB0F8D29828F75009CD75B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F7FAA0D62990F64100F92C9F /* myTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myTableViewCell.swift; sourceTree = "<group>"; };
+		F7FAA0D62990F64100F92C9F /* AdditionalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalTableViewCell.swift; sourceTree = "<group>"; };
+		F7FAA0D82991732200F92C9F /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		F7FAA0DA2991736D00F92C9F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +58,11 @@
 		F7ACCE8029899EAE003793B1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F7CB0F8329828F75009CD75B /* ViewController.swift */,
+				F7FAA0DA2991736D00F92C9F /* MainViewController.swift */,
+				F7CB0F8329828F75009CD75B /* AdditionalViewController.swift */,
+				F7FAA0D82991732200F92C9F /* MainTableViewCell.swift */,
+				F7FAA0D62990F64100F92C9F /* AdditionalTableViewCell.swift */,
 				F73A7FFB298E73AA002C8B47 /* FileWifi.swift */,
-				F73A7FFF298E7C1A002C8B47 /* NetworkErrorViewController.swift */,
-				F7FAA0D62990F64100F92C9F /* myTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -191,10 +194,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7A2034B2983009C008319C9 /* Currency.swift in Sources */,
-				F7FAA0D72990F64100F92C9F /* myTableViewCell.swift in Sources */,
-				F7CB0F8429828F75009CD75B /* ViewController.swift in Sources */,
+				F7FAA0D72990F64100F92C9F /* AdditionalTableViewCell.swift in Sources */,
+				F7FAA0D92991732200F92C9F /* MainTableViewCell.swift in Sources */,
+				F7CB0F8429828F75009CD75B /* AdditionalViewController.swift in Sources */,
 				F7CB0F8029828F75009CD75B /* AppDelegate.swift in Sources */,
-				F73A8000298E7C1A002C8B47 /* NetworkErrorViewController.swift in Sources */,
+				F7FAA0DB2991736D00F92C9F /* MainViewController.swift in Sources */,
 				F7CB0F8229828F75009CD75B /* SceneDelegate.swift in Sources */,
 				F73A7FFC298E73AA002C8B47 /* FileWifi.swift in Sources */,
 			);

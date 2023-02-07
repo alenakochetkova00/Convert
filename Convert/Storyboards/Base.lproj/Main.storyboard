@@ -9,19 +9,114 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Конвертер валют-->
+        <!--Конвертор валют-->
+        <scene sceneID="btj-tP-9Wm">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="h0a-oe-jHR" customClass="MainViewController" customModule="Convert" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AZL-DB-p16">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="rDZ-2a-BEb">
+                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellOnMainScreen" rowHeight="65" id="tgo-K4-JbC" customClass="MainTableViewCell" customModule="Convert" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="65"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tgo-K4-JbC" id="dC5-Pf-pJP">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="65"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ID-0e-6oD">
+                                                    <rect key="frame" x="80" y="11" width="44" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                    <color key="textColor" systemColor="systemGrayColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="United Arab Emirates" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bR3-Rf-zvv">
+                                                    <rect key="frame" x="80" y="34" width="149" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="🇦🇪" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDO-sN-Mir">
+                                                    <rect key="frame" x="20" y="12" width="40" height="42"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="146,29" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZx-RY-qVg">
+                                                    <rect key="frame" x="256" y="23" width="117" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="codeCountries" destination="2ID-0e-6oD" id="B5m-65-uuw"/>
+                                            <outlet property="currencyValue" destination="NZx-RY-qVg" id="gBD-5N-z7Z"/>
+                                            <outlet property="flag" destination="MDO-sN-Mir" id="kt0-HA-fMa"/>
+                                            <outlet property="nameCountries" destination="bR3-Rf-zvv" id="r6p-fl-HBK"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="h0a-oe-jHR" id="Tdl-JQ-EyM"/>
+                                    <outlet property="delegate" destination="h0a-oe-jHR" id="6ET-7O-gZx"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="HzV-FI-AGE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="rDZ-2a-BEb" secondAttribute="bottom" id="Bvn-Np-UCP"/>
+                            <constraint firstItem="rDZ-2a-BEb" firstAttribute="top" secondItem="HzV-FI-AGE" secondAttribute="top" id="PP5-G8-NNn"/>
+                            <constraint firstItem="rDZ-2a-BEb" firstAttribute="leading" secondItem="HzV-FI-AGE" secondAttribute="leading" id="ROw-a3-0mY"/>
+                            <constraint firstItem="HzV-FI-AGE" firstAttribute="trailing" secondItem="rDZ-2a-BEb" secondAttribute="trailing" id="blp-bC-Aec"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Конвертор валют" id="yjO-8k-awt">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="add" id="j8V-7h-gvi">
+                            <connections>
+                                <segue destination="aFj-df-DAw" kind="show" identifier="" id="XUd-VG-F99"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Править" id="TlT-rR-BjL">
+                            <connections>
+                                <action selector="editButtonClick:" destination="h0a-oe-jHR" id="Pga-3N-e0u"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="editButton" destination="TlT-rR-BjL" id="GXW-Vw-ygr"/>
+                        <outlet property="tableView" destination="rDZ-2a-BEb" id="QOb-nl-N3l"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YFN-xH-M4u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6214.5038167938928" y="42.95774647887324"/>
+        </scene>
+        <!--Добавить валюту-->
         <scene sceneID="Vrc-Eb-8Ct">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="aFj-df-DAw" customClass="ViewController" customModule="Convert" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="AdditionalViewController" storyboardIdentifier="AdditionalViewController" id="aFj-df-DAw" customClass="AdditionalViewController" customModule="Convert" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h7C-nx-G0e">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jPq-ag-C5b">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="65" id="sdu-5z-KJd" customClass="myTableViewCell" customModule="Convert" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="65" id="sdu-5z-KJd" customClass="AdditionalTableViewCell" customModule="Convert" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sdu-5z-KJd" id="IYQ-0q-gqo" customClass="TableViewCell" customModule="Convert" customModuleProvider="target">
@@ -29,21 +124,21 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="United Arab Emirates" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFQ-HG-m9Q">
-                                                    <rect key="frame" x="123" y="35" width="250" height="18"/>
+                                                    <rect key="frame" x="71" y="30" width="250" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="🇦🇪" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVb-l3-NVr">
-                                                    <rect key="frame" x="63" y="11" width="40" height="42"/>
+                                                    <rect key="frame" x="20" y="12" width="40" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ev5-Qd-3HS">
-                                                    <rect key="frame" x="123" y="11" width="68" height="18"/>
+                                                    <rect key="frame" x="71" y="11" width="68" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                     <color key="textColor" systemColor="systemGrayColor"/>
@@ -69,35 +164,39 @@
                         <constraints>
                             <constraint firstItem="jPq-ag-C5b" firstAttribute="top" secondItem="ZK9-4u-8ME" secondAttribute="top" id="FOB-4T-Z1E"/>
                             <constraint firstItem="ZK9-4u-8ME" firstAttribute="trailing" secondItem="jPq-ag-C5b" secondAttribute="trailing" id="GbD-Vf-vNc"/>
-                            <constraint firstItem="ZK9-4u-8ME" firstAttribute="bottom" secondItem="jPq-ag-C5b" secondAttribute="bottom" id="bve-Cc-TE5"/>
+                            <constraint firstAttribute="bottom" secondItem="jPq-ag-C5b" secondAttribute="bottom" id="oRy-XH-iEj"/>
                             <constraint firstItem="jPq-ag-C5b" firstAttribute="leading" secondItem="ZK9-4u-8ME" secondAttribute="leading" id="q0T-XX-Ims"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Конвертер валют" id="xuf-2A-grp"/>
+                    <navigationItem key="navigationItem" title="Добавить валюту" style="editor" id="4v8-EY-cCt">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="taM-mD-nUC">
+                            <connections>
+                                <segue destination="DIa-rL-XGp" kind="presentation" modalTransitionStyle="coverVertical" id="nzm-f1-Dec"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="jPq-ag-C5b" id="x1Z-ML-KQ3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bYX-Gg-Tma" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6416.0305343511445" y="42.95774647887324"/>
+            <point key="canvasLocation" x="6933.5877862595416" y="42.95774647887324"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FHg-bc-rdr">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DIa-rL-XGp" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="DIa-rL-XGp" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="WwP-N1-R8C"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wEZ-fo-rBv">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <navigationBarAppearance key="scrollEdgeAppearance"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vSY-TC-dua">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
                     <connections>
-                        <segue destination="aFj-df-DAw" kind="relationship" relationship="rootViewController" id="WmN-0N-FTN"/>
+                        <segue destination="h0a-oe-jHR" kind="relationship" relationship="rootViewController" id="cEf-EB-lPS"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FhV-hL-ouL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

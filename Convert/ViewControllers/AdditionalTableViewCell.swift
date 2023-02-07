@@ -1,13 +1,12 @@
 
 import UIKit
 
-class myTableViewCell: UITableViewCell {
+class AdditionalTableViewCell: UITableViewCell {
 
     
     @IBOutlet var flag: UILabel!
     @IBOutlet var nameCountries: UILabel!
     @IBOutlet var codeCountries: UILabel!
-    @IBOutlet var currencyCountries: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
