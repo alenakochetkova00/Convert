@@ -53,7 +53,7 @@ class AdditionalViewController: UIViewController {
         
         let session = URLSession.shared
         
-        let task = session.dataTask(with: url!) { (data, response, error) in
+        let task = session.dataTask(with: url!) { data, response, error in
             
             if error != nil {
                 print(error?.localizedDescription as Any)

@@ -83,14 +83,14 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Конвертор валют" id="yjO-8k-awt">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="add" id="j8V-7h-gvi">
-                            <connections>
-                                <segue destination="aFj-df-DAw" kind="show" identifier="" id="XUd-VG-F99"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Править" id="TlT-rR-BjL">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="TlT-rR-BjL">
                             <connections>
                                 <action selector="editButtonClick:" destination="h0a-oe-jHR" id="Pga-3N-e0u"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="j8V-7h-gvi">
+                            <connections>
+                                <segue destination="aFj-df-DAw" kind="show" identifier="" id="XUd-VG-F99"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

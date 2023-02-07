@@ -5,15 +5,22 @@ class MainViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var editButton: UIBarButtonItem!
+    @IBOutlet var currencyText: UILabel!
+    
+    var listCurrency = [String : Double]()
+    var listCurrencyName = [String]()
+    var listCurrencyValue = [Double]()
     
     var flag = [String]()
     var name = [String]()
-    var code = [String]()
+    var codes = [String]()
+    var currency = [Double]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         dataStorage()
+        receivingData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,9 +37,63 @@ class MainViewController: UIViewController {
             name = UserDefaults.standard.object(forKey: "name") as! [String]
         }
         if UserDefaults.standard.object(forKey: "code") != nil {
-            code = UserDefaults.standard.object(forKey: "code") as! [String]
+            codes = UserDefaults.standard.object(forKey: "code") as! [String]
         }
     }
+    
+    func receivingData() {
+        
+        let url = URL(string: "https://open.er-api.com/v6/latest/USD")
+        
+        let session = URLSession.shared
+        
+        let task = session.dataTask(with: url!) { data, response, error in
+            
+            if error != nil {
+                print(error?.localizedDescription as Any)
+                
+            } else {
+                
+                if data != nil {
+                    
+                    do {
+                        let jsonResponse = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! Dictionary<String, Any>
+                        
+                        print(jsonResponse)
+                        
+                        DispatchQueue.main.async { [self] in
+                            
+                            let array = Array(jsonResponse["rates"] as! [String : Double])
+                            
+                            for cod in codes {
+                            for (key, value) in array {
+                                
+                                var entity = CurrencyConversion()
+                                entity.code = key
+                                entity.value = value
+                                
+                                if cod == key {
+                                    self.listCurrencyName.append(key)
+                                    self.currency.append(value)
+                                
+                                    }
+                                }
+                            }
+                            
+                            print(currency)
+                            print(codes)
+                            print(listCurrencyName)
+                            self.tableView.reloadData()
+                        }
+                    } catch {
+                        print("error")
+                    }
+                }
+            }
+        }
+        task.resume()
+    }
+    
     
     @IBAction func editButtonClick(_ sender: Any) {
         
@@ -43,7 +104,6 @@ class MainViewController: UIViewController {
             editButton.title = "Edit"
         }
     }
-    
 }
 
 
@@ -54,7 +114,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return name.count
+        return currency.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -62,7 +122,8 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         
         cell.flag.text = flag[indexPath.row]
         cell.nameCountries.text = name[indexPath.row]
-        cell.codeCountries.text = code[indexPath.row]
+        cell.codeCountries.text = codes[indexPath.row]
+        cell.currencyValue.text = String(currency[indexPath.row])
        
         return cell
     }
@@ -85,13 +146,18 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         name.remove(at: sourceIndexPath.row)
         name.insert(selectedItemName, at: destinationIndexPath.row)
         
-        let selectedItemCode = code[sourceIndexPath.row]
-        code.remove(at: sourceIndexPath.row)
-        code.insert(selectedItemCode, at: destinationIndexPath.row)
+        let selectedItemCode = codes[sourceIndexPath.row]
+        codes.remove(at: sourceIndexPath.row)
+        codes.insert(selectedItemCode, at: destinationIndexPath.row)
+        
+        let selectedItemCurrency = currency[sourceIndexPath.row]
+        currency.remove(at: sourceIndexPath.row)
+        currency.insert(selectedItemCurrency, at: destinationIndexPath.row)
         
         UserDefaults.standard.setValue(flag, forKey: "flag")
         UserDefaults.standard.setValue(name, forKey: "name")
-        UserDefaults.standard.setValue(code, forKey: "code")
+        UserDefaults.standard.setValue(codes, forKey: "code")
+        UserDefaults.standard.setValue(currency, forKey: "currency")
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -99,13 +165,15 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.beginUpdates()
         flag.remove(at: indexPath.row)
         name.remove(at: indexPath.row)
-        code.remove(at: indexPath.row)
+        codes.remove(at: indexPath.row)
+        currency.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .fade)
         tableView.endUpdates()
         
         UserDefaults.standard.setValue(flag, forKey: "flag")
         UserDefaults.standard.setValue(name, forKey: "name")
-        UserDefaults.standard.setValue(code, forKey: "code")
+        UserDefaults.standard.setValue(codes, forKey: "code")
+        UserDefaults.standard.setValue(currency, forKey: "currency")
     }
 
 }
