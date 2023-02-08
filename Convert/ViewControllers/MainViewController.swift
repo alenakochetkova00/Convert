@@ -19,6 +19,21 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if NetworkMonitor.shared.isConnected {
+            print("connected")
+        } else {
+            
+            navigationController?.setNavigationBarHidden(true, animated: true)
+            tableView.isHidden = true
+            let alert = UIAlertController(title: "ooops...", message: ("no internet connection"), preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "ok", style: UIAlertAction.Style.default, handler: { action in
+                UIControl().sendAction(#selector(NSXPCConnection.suspend),
+                                       to: UIApplication.shared, for: nil)
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+        
         dataStorage()
         receivingData()
     }
