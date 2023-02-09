@@ -13,6 +13,7 @@ class MainViewController: UIViewController {
     var name = [String]()
     var codes = [String]()
     var currency = [Double]()
+    var USD: Double = 1.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +56,16 @@ class MainViewController: UIViewController {
         if UserDefaults.standard.object(forKey: "currency") != nil {
             currency = UserDefaults.standard.object(forKey: "currency") as? [Double] ?? []
         }
+        if UserDefaults.standard.object(forKey: "USD") != nil {
+            USD = UserDefaults.standard.object(forKey: "USD") as? Double ?? 1.0
+        }
+    }
+    
+    @IBAction func updatebuttonClick(_ sender: Any) {
+        if UserDefaults.standard.object(forKey: "USD") != nil {
+            USD = UserDefaults.standard.object(forKey: "USD") as? Double ?? 1.0
+            tableView.reloadData()
+        }
     }
 }
 
@@ -72,10 +83,10 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellOnMainScreen", for: indexPath) as! MainTableViewCell
         
-        cell.flagCountries.text = flag[indexPath.row]
+        cell.flagCountries.text = flag[indexPath.row] 
         cell.nameCountries.text = name[indexPath.row]
         cell.codeCountries.text = codes[indexPath.row]
-        cell.currencyCountries.text = String(currency[indexPath.row])
+        cell.currencyCountries.text = String(Float32(currency[indexPath.row] * USD))
        
         return cell
     }

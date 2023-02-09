@@ -542,9 +542,6 @@ class AdditionalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.isEditing = true
-        self.tableView.allowsMultipleSelectionDuringEditing = true
-        
         getData()
     }
     
@@ -645,10 +642,13 @@ class AdditionalViewController: UIViewController {
                     arrayCurrencyCountries = UserDefaults.standard.object(forKey: "currency") as? [Double] ?? []
                 }
                 
-                arrayCodeCountries.insert(dictionaryCodeCountriesList[index.row], at: 0)
-                arrayCurrencyCountries.insert(listCurrencyValue[index.row], at: 0)
-                arrayNamesCountries.insert(dictionaryNamesCountriesList[index.row], at: 0)
-                arrayFlagsCountries.insert(vocabularyFlagsCountriesList[index.row], at: 0)
+                
+                if !arrayNamesCountries.contains(dictionaryNamesCountriesList[index.row]) {
+                    arrayCodeCountries.insert(dictionaryCodeCountriesList[index.row], at: 0)
+                    arrayCurrencyCountries.insert(listCurrencyValue[index.row], at: 0)
+                    arrayNamesCountries.insert(dictionaryNamesCountriesList[index.row], at: 0)
+                    arrayFlagsCountries.insert(vocabularyFlagsCountriesList[index.row], at: 0)
+                }
             }
         }
         UserDefaults.standard.setValue(arrayFlagsCountries, forKey: "flag")
@@ -685,10 +685,12 @@ extension AdditionalViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectDeselectCell(tabelView: tableView, indexPath: indexPath)
+        tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         self.selectDeselectCell(tabelView: tableView, indexPath: indexPath)
+        tableView.cellForRow(at: indexPath)?.accessoryType = .none
     }
 }
 

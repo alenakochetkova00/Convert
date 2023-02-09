@@ -28,34 +28,55 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ID-0e-6oD">
-                                                    <rect key="frame" x="80" y="11" width="44" height="18"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ID-0e-6oD">
+                                                    <rect key="frame" x="68" y="12" width="44" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="44" id="dk8-5e-Dg4"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                     <color key="textColor" systemColor="systemGrayColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="United Arab Emirates" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bR3-Rf-zvv">
-                                                    <rect key="frame" x="80" y="34" width="149" height="18"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="🇦🇪" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDO-sN-Mir">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🇦🇪" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDO-sN-Mir">
                                                     <rect key="frame" x="20" y="12" width="40" height="42"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="G36-N6-2xa"/>
+                                                        <constraint firstAttribute="height" constant="42" id="Y1P-Uf-Auc"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="146,29" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4cO-tS-QlU">
-                                                    <rect key="frame" x="276" y="15" width="97" height="34"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="146,29" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4cO-tS-QlU">
+                                                    <rect key="frame" x="270" y="15" width="108" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="34" id="esG-Ge-1Ph"/>
+                                                        <constraint firstAttribute="width" constant="108" id="tb9-Tw-DNZ"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="United Arab Emirates" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bR3-Rf-zvv">
+                                                    <rect key="frame" x="68" y="31" width="156" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="156" id="Ox7-qR-CPV"/>
+                                                        <constraint firstAttribute="height" constant="18" id="wzU-uW-vj1"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="4cO-tS-QlU" firstAttribute="top" secondItem="dC5-Pf-pJP" secondAttribute="topMargin" constant="4" id="Ucv-a1-zbv"/>
+                                                <constraint firstItem="4cO-tS-QlU" firstAttribute="trailing" secondItem="dC5-Pf-pJP" secondAttribute="trailingMargin" constant="5" id="YQ4-wW-gOB"/>
+                                                <constraint firstItem="MDO-sN-Mir" firstAttribute="leading" secondItem="dC5-Pf-pJP" secondAttribute="leadingMargin" id="kf4-Tp-K7k"/>
+                                                <constraint firstItem="MDO-sN-Mir" firstAttribute="top" secondItem="dC5-Pf-pJP" secondAttribute="topMargin" constant="1" id="kh0-75-hwY"/>
+                                                <constraint firstItem="bR3-Rf-zvv" firstAttribute="top" secondItem="2ID-0e-6oD" secondAttribute="bottom" constant="1" id="lrW-Cg-LwW"/>
+                                                <constraint firstItem="2ID-0e-6oD" firstAttribute="top" secondItem="dC5-Pf-pJP" secondAttribute="topMargin" constant="1" id="paq-WF-y3U"/>
+                                                <constraint firstItem="bR3-Rf-zvv" firstAttribute="leading" secondItem="MDO-sN-Mir" secondAttribute="trailing" constant="8" symbolic="YES" id="tfO-Kk-VU5"/>
+                                                <constraint firstItem="2ID-0e-6oD" firstAttribute="leading" secondItem="MDO-sN-Mir" secondAttribute="trailing" constant="8" symbolic="YES" id="xAE-iL-tR2"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="codeCountries" destination="2ID-0e-6oD" id="B5m-65-uuw"/>
@@ -82,6 +103,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Конвертор валют" id="yjO-8k-awt">
+                        <barButtonItem key="leftBarButtonItem" image="goforward" catalog="system" id="UfV-b5-mmj">
+                            <connections>
+                                <action selector="updatebuttonClick:" destination="h0a-oe-jHR" id="reb-kY-oS4"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="j8V-7h-gvi">
                             <connections>
                                 <segue destination="aFj-df-DAw" kind="show" identifier="" id="XUd-VG-F99"/>
@@ -105,7 +131,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jPq-ag-C5b">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jPq-ag-C5b">
                                 <rect key="frame" x="0.0" y="103" width="393" height="749"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -198,6 +224,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="goforward" catalog="system" width="119" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
