@@ -528,7 +528,7 @@ class AdditionalViewController: UIViewController {
                                     "South Africa": "🇿🇦",
                                     "Zambia": "🇿🇲",
                                     "Zimbabwe": "🇿🇼"]
-    
+
     var dictionaryCodeCountriesList = [String]()
     var dictionaryNamesCountriesList = [String]()
     var vocabularyFlagsCountriesList = [String]()
@@ -541,6 +541,9 @@ class AdditionalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.isEditing = true
+        self.tableView.allowsMultipleSelectionDuringEditing = true
         
         getData()
     }
@@ -685,12 +688,10 @@ extension AdditionalViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectDeselectCell(tabelView: tableView, indexPath: indexPath)
-        tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         self.selectDeselectCell(tabelView: tableView, indexPath: indexPath)
-        tableView.cellForRow(at: indexPath)?.accessoryType = .none
     }
 }
 

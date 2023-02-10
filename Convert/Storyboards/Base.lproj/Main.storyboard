@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Конвертор валют-->
+        <!--Конвертер валют-->
         <scene sceneID="btj-tP-9Wm">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="h0a-oe-jHR" customClass="MainViewController" customModule="Convert" customModuleProvider="target" sceneMemberID="viewController">
@@ -29,38 +29,39 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ID-0e-6oD">
-                                                    <rect key="frame" x="68" y="12" width="44" height="18"/>
+                                                    <rect key="frame" x="68" y="15" width="53" height="14"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="44" id="dk8-5e-Dg4"/>
+                                                        <constraint firstAttribute="width" constant="53" id="F9V-Ms-uz0"/>
+                                                        <constraint firstAttribute="height" constant="14" id="znK-7h-kLr"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                     <color key="textColor" systemColor="systemGrayColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🇦🇪" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDO-sN-Mir">
                                                     <rect key="frame" x="20" y="12" width="40" height="42"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="40" id="G36-N6-2xa"/>
-                                                        <constraint firstAttribute="height" constant="42" id="Y1P-Uf-Auc"/>
+                                                        <constraint firstAttribute="height" constant="42" id="0A0-Ct-OJc"/>
+                                                        <constraint firstAttribute="width" constant="40" id="GaI-7I-gjg"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="146,29" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4cO-tS-QlU">
-                                                    <rect key="frame" x="270" y="15" width="108" height="34"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.36151734" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4cO-tS-QlU">
+                                                    <rect key="frame" x="275" y="15" width="103" height="34"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="34" id="esG-Ge-1Ph"/>
-                                                        <constraint firstAttribute="width" constant="108" id="tb9-Tw-DNZ"/>
+                                                        <constraint firstAttribute="height" constant="34" id="KCD-Z6-CTX"/>
+                                                        <constraint firstAttribute="width" constant="103" id="wC6-cV-cA2"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="United Arab Emirates" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bR3-Rf-zvv">
-                                                    <rect key="frame" x="68" y="31" width="156" height="18"/>
+                                                    <rect key="frame" x="68" y="31" width="167" height="18"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="156" id="Ox7-qR-CPV"/>
-                                                        <constraint firstAttribute="height" constant="18" id="wzU-uW-vj1"/>
+                                                        <constraint firstAttribute="height" constant="18" id="fQq-o2-iZc"/>
+                                                        <constraint firstAttribute="width" constant="167" id="kvV-8v-Uik"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                     <nil key="textColor"/>
@@ -68,14 +69,14 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="4cO-tS-QlU" firstAttribute="top" secondItem="dC5-Pf-pJP" secondAttribute="topMargin" constant="4" id="Ucv-a1-zbv"/>
-                                                <constraint firstItem="4cO-tS-QlU" firstAttribute="trailing" secondItem="dC5-Pf-pJP" secondAttribute="trailingMargin" constant="5" id="YQ4-wW-gOB"/>
-                                                <constraint firstItem="MDO-sN-Mir" firstAttribute="leading" secondItem="dC5-Pf-pJP" secondAttribute="leadingMargin" id="kf4-Tp-K7k"/>
-                                                <constraint firstItem="MDO-sN-Mir" firstAttribute="top" secondItem="dC5-Pf-pJP" secondAttribute="topMargin" constant="1" id="kh0-75-hwY"/>
-                                                <constraint firstItem="bR3-Rf-zvv" firstAttribute="top" secondItem="2ID-0e-6oD" secondAttribute="bottom" constant="1" id="lrW-Cg-LwW"/>
-                                                <constraint firstItem="2ID-0e-6oD" firstAttribute="top" secondItem="dC5-Pf-pJP" secondAttribute="topMargin" constant="1" id="paq-WF-y3U"/>
-                                                <constraint firstItem="bR3-Rf-zvv" firstAttribute="leading" secondItem="MDO-sN-Mir" secondAttribute="trailing" constant="8" symbolic="YES" id="tfO-Kk-VU5"/>
-                                                <constraint firstItem="2ID-0e-6oD" firstAttribute="leading" secondItem="MDO-sN-Mir" secondAttribute="trailing" constant="8" symbolic="YES" id="xAE-iL-tR2"/>
+                                                <constraint firstItem="MDO-sN-Mir" firstAttribute="top" secondItem="dC5-Pf-pJP" secondAttribute="topMargin" constant="1" id="BL9-6C-FR6"/>
+                                                <constraint firstItem="2ID-0e-6oD" firstAttribute="leading" secondItem="MDO-sN-Mir" secondAttribute="trailing" constant="8" symbolic="YES" id="Jjq-SM-2sz"/>
+                                                <constraint firstAttribute="trailing" secondItem="4cO-tS-QlU" secondAttribute="trailing" constant="15" id="Rv1-37-6Z1"/>
+                                                <constraint firstItem="2ID-0e-6oD" firstAttribute="top" secondItem="dC5-Pf-pJP" secondAttribute="topMargin" constant="4" id="VcV-Dh-j95"/>
+                                                <constraint firstItem="bR3-Rf-zvv" firstAttribute="top" secondItem="2ID-0e-6oD" secondAttribute="bottom" constant="2" id="d1i-WA-fds"/>
+                                                <constraint firstItem="bR3-Rf-zvv" firstAttribute="leading" secondItem="MDO-sN-Mir" secondAttribute="trailing" constant="8" symbolic="YES" id="leW-sx-zKb"/>
+                                                <constraint firstItem="4cO-tS-QlU" firstAttribute="top" secondItem="dC5-Pf-pJP" secondAttribute="top" constant="15" id="q5d-sh-z4v"/>
+                                                <constraint firstItem="MDO-sN-Mir" firstAttribute="leading" secondItem="dC5-Pf-pJP" secondAttribute="leadingMargin" id="yXM-DS-EQS"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -102,7 +103,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Конвертор валют" id="yjO-8k-awt">
+                    <navigationItem key="navigationItem" title="Конвертер валют" id="yjO-8k-awt">
                         <barButtonItem key="leftBarButtonItem" image="goforward" catalog="system" id="UfV-b5-mmj">
                             <connections>
                                 <action selector="updatebuttonClick:" destination="h0a-oe-jHR" id="reb-kY-oS4"/>
@@ -142,28 +143,45 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="United Arab Emirates" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFQ-HG-m9Q">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="United Arab Emirates" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFQ-HG-m9Q">
                                                     <rect key="frame" x="71" y="30" width="250" height="18"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="18" id="aq7-0r-bir"/>
+                                                        <constraint firstAttribute="width" constant="250" id="rMN-AA-zf8"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="🇦🇪" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVb-l3-NVr">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🇦🇪" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVb-l3-NVr">
                                                     <rect key="frame" x="20" y="12" width="40" height="40"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="7ha-Xt-Ocm"/>
+                                                        <constraint firstAttribute="height" constant="40" id="hBg-q1-o8O"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ev5-Qd-3HS">
-                                                    <rect key="frame" x="71" y="11" width="68" height="18"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ev5-Qd-3HS">
+                                                    <rect key="frame" x="71" y="12" width="68" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="18" id="3ex-Dh-ahq"/>
+                                                        <constraint firstAttribute="width" constant="68" id="JBs-ql-vIs"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                     <color key="textColor" systemColor="systemGrayColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="PVb-l3-NVr" firstAttribute="leading" secondItem="IYQ-0q-gqo" secondAttribute="leadingMargin" id="MLH-8M-nqA"/>
+                                                <constraint firstItem="PVb-l3-NVr" firstAttribute="top" secondItem="IYQ-0q-gqo" secondAttribute="topMargin" constant="1" id="XBa-gt-88T"/>
+                                                <constraint firstItem="NFQ-HG-m9Q" firstAttribute="leading" secondItem="PVb-l3-NVr" secondAttribute="trailing" constant="11" id="dYI-2x-ngD"/>
+                                                <constraint firstItem="ev5-Qd-3HS" firstAttribute="leading" secondItem="PVb-l3-NVr" secondAttribute="trailing" constant="11" id="fDm-Dt-tId"/>
+                                                <constraint firstItem="ev5-Qd-3HS" firstAttribute="top" secondItem="IYQ-0q-gqo" secondAttribute="topMargin" constant="1" id="ou4-br-kz8"/>
+                                                <constraint firstItem="NFQ-HG-m9Q" firstAttribute="top" secondItem="ev5-Qd-3HS" secondAttribute="bottom" id="yiP-Z0-eQe"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="codeCountries" destination="ev5-Qd-3HS" id="WlI-tY-zhm"/>
@@ -188,9 +206,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Добавить валюту" style="editor" id="4v8-EY-cCt">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="taM-mD-nUC">
+                        <barButtonItem key="rightBarButtonItem" title="Сохранить" id="BXS-Ss-VXY">
                             <connections>
-                                <segue destination="DIa-rL-XGp" kind="presentation" modalTransitionStyle="coverVertical" id="nzm-f1-Dec"/>
+                                <segue destination="DIa-rL-XGp" kind="presentation" id="bs7-V2-SSu"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
