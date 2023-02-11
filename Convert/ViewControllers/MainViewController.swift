@@ -13,10 +13,13 @@ class MainViewController: UIViewController {
     var name = [String]()
     var codes = [String]()
     var currency = [Double]()
+    
     var USD: Double = 1.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.reloadData()
         
         if NetworkMonitor.shared.isConnected {
             print("connected")
@@ -60,13 +63,6 @@ class MainViewController: UIViewController {
             USD = UserDefaults.standard.object(forKey: "USD") as? Double ?? 1.0
         }
     }
-    
-    @IBAction func updatebuttonClick(_ sender: Any) {
-        if UserDefaults.standard.object(forKey: "USD") != nil {
-            USD = UserDefaults.standard.object(forKey: "USD") as? Double ?? 1.0
-            tableView.reloadData()
-        }
-    }
 }
 
 
@@ -82,6 +78,14 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellOnMainScreen", for: indexPath) as! MainTableViewCell
+        
+        lazy var numberFormatter: NumberFormatter = {
+          let nf = NumberFormatter()
+          nf.minimumFractionDigits = 2
+          nf.maximumFractionDigits = 2
+
+          return nf
+        }()
         
         cell.flagCountries.text = flag[indexPath.row] 
         cell.nameCountries.text = name[indexPath.row]
@@ -121,4 +125,17 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
             
         }
     }
+}
+
+extension Formatter {
+    static let withSeparator: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.groupingSeparator = " "
+        return formatter
+    }()
+}
+
+extension Numeric {
+    var formattedWithSeparator: String { Formatter.withSeparator.string(for: self) ?? "" }
 }

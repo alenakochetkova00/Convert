@@ -529,10 +529,10 @@ class AdditionalViewController: UIViewController {
                                     "Zambia": "🇿🇲",
                                     "Zimbabwe": "🇿🇼"]
 
-    var dictionaryCodeCountriesList = [String]()
-    var dictionaryNamesCountriesList = [String]()
+    var vocabularyCodeCountriesList = [String]()
+    var vocabularyNameCountriesList = [String]()
     var vocabularyFlagsCountriesList = [String]()
-    var listCurrencyValue = [Double]()
+    var vocabularyCurrencyCountriesList = [Double]()
     
     var arrayCodeCountries = [String]()
     var arrayNamesCountries = [String]()
@@ -585,13 +585,13 @@ class AdditionalViewController: UIViewController {
                                 
                                 for (key, value) in Array(listCodeCountries) {
                                     if value == keys {
-                                        dictionaryCodeCountriesList.append(value)
+                                        vocabularyCodeCountriesList.append(value)
                                         listCurrencyText.append(keys)
-                                        listCurrencyValue.append(values)
+                                        vocabularyCurrencyCountriesList.append(values)
                                         
                                         for (keyis, valuis) in Array(dictionaryNamesCountries) {
                                             if keyis == key {
-                                                dictionaryNamesCountriesList.append(valuis)
+                                                vocabularyNameCountriesList.append(valuis)
                                                 
                                                 for (keiz, valuez) in Array(vocabularyFlagsCountries) {
                                                     if keiz == valuis {
@@ -607,8 +607,8 @@ class AdditionalViewController: UIViewController {
                             print(list)
                             print(listCodeCountries.count)
                             print(vocabularyFlagsCountriesList.count)
-                            print(dictionaryNamesCountriesList.count)
-                            print(dictionaryCodeCountriesList)
+                            print(vocabularyNameCountriesList.count)
+                            print(vocabularyCodeCountriesList)
                             self.tableView.reloadData()
                         }
                         
@@ -646,10 +646,10 @@ class AdditionalViewController: UIViewController {
                 }
                 
                 
-                if !arrayNamesCountries.contains(dictionaryNamesCountriesList[index.row]) {
-                    arrayCodeCountries.insert(dictionaryCodeCountriesList[index.row], at: 0)
-                    arrayCurrencyCountries.insert(listCurrencyValue[index.row], at: 0)
-                    arrayNamesCountries.insert(dictionaryNamesCountriesList[index.row], at: 0)
+                if !arrayNamesCountries.contains(vocabularyNameCountriesList[index.row]) {
+                    arrayCodeCountries.insert(vocabularyCodeCountriesList[index.row], at: 0)
+                    arrayCurrencyCountries.insert(vocabularyCurrencyCountriesList[index.row], at: 0)
+                    arrayNamesCountries.insert(vocabularyNameCountriesList[index.row], at: 0)
                     arrayFlagsCountries.insert(vocabularyFlagsCountriesList[index.row], at: 0)
                 }
             }
@@ -679,9 +679,9 @@ extension AdditionalViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AdditionalTableViewCell
-        cell.flag.text = String(vocabularyFlagsCountriesList[indexPath.row])
-        cell.nameCountries.text = String(dictionaryNamesCountriesList[indexPath.row])
-        cell.codeCountries.text = String(dictionaryCodeCountriesList[indexPath.row])
+        cell.flagCountries.text = String(vocabularyFlagsCountriesList[indexPath.row])
+        cell.nameCountries.text = String(vocabularyNameCountriesList[indexPath.row])
+        cell.codeCountries.text = String(vocabularyCodeCountriesList[indexPath.row])
 
         return cell
     }
