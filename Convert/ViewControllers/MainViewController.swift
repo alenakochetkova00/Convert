@@ -5,10 +5,6 @@ class MainViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
-    var listCurrency = [String : Double]()
-    var listCurrencyName = [String]()
-    var listCurrencyValue = [Double]()
-    
     var flag = [String]()
     var name = [String]()
     var codes = [String]()

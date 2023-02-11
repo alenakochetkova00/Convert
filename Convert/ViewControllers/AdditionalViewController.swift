@@ -624,27 +624,26 @@ class AdditionalViewController: UIViewController {
     
     func selectDeselectCell(tabelView: UITableView, indexPath: IndexPath) {
         
+        arrayFlagsCountries.removeAll()
+        arrayNamesCountries.removeAll()
+        arrayCodeCountries.removeAll()
+        arrayCurrencyCountries.removeAll()
+        
+        if UserDefaults.standard.object(forKey: "flag") != nil {
+            arrayFlagsCountries = UserDefaults.standard.object(forKey: "flag") as? [String] ?? []
+        }
+        if UserDefaults.standard.object(forKey: "name") != nil {
+            arrayNamesCountries = UserDefaults.standard.object(forKey: "name") as? [String] ?? []
+        }
+        if UserDefaults.standard.object(forKey: "code") != nil {
+            arrayCodeCountries = UserDefaults.standard.object(forKey: "code") as? [String] ?? []
+        }
+        if UserDefaults.standard.object(forKey: "currency") != nil {
+            arrayCurrencyCountries = UserDefaults.standard.object(forKey: "currency") as? [Double] ?? []
+        }
+        
         if let array = tableView.indexPathsForSelectedRows {
             for index in array {
-                
-                arrayFlagsCountries.removeAll()
-                arrayNamesCountries.removeAll()
-                arrayCodeCountries.removeAll()
-                arrayCurrencyCountries.removeAll()
-                
-                if UserDefaults.standard.object(forKey: "flag") != nil {
-                    arrayFlagsCountries = UserDefaults.standard.object(forKey: "flag") as? [String] ?? []
-                }
-                if UserDefaults.standard.object(forKey: "name") != nil {
-                    arrayNamesCountries = UserDefaults.standard.object(forKey: "name") as? [String] ?? []
-                }
-                if UserDefaults.standard.object(forKey: "code") != nil {
-                    arrayCodeCountries = UserDefaults.standard.object(forKey: "code") as? [String] ?? []
-                }
-                if UserDefaults.standard.object(forKey: "currency") != nil {
-                    arrayCurrencyCountries = UserDefaults.standard.object(forKey: "currency") as? [Double] ?? []
-                }
-                
                 
                 if !arrayNamesCountries.contains(vocabularyNameCountriesList[index.row]) {
                     arrayCodeCountries.insert(vocabularyCodeCountriesList[index.row], at: 0)
@@ -654,15 +653,28 @@ class AdditionalViewController: UIViewController {
                 }
             }
         }
-        UserDefaults.standard.setValue(arrayFlagsCountries, forKey: "flag")
-        UserDefaults.standard.setValue(arrayNamesCountries, forKey: "name")
-        UserDefaults.standard.setValue(arrayCodeCountries, forKey: "code")
-        UserDefaults.standard.setValue(arrayCurrencyCountries, forKey: "currency")
+        print(arrayFlagsCountries)
+        print(arrayNamesCountries)
+        print(arrayCodeCountries)
+        print(arrayCurrencyCountries)
+    }
+    
+    @IBAction func saveButtonClick(_ sender: Any) {
+        
+        if arrayNamesCountries != [] {
+            UserDefaults.standard.setValue(arrayFlagsCountries, forKey: "flag")
+            UserDefaults.standard.setValue(arrayNamesCountries, forKey: "name")
+            UserDefaults.standard.setValue(arrayCodeCountries, forKey: "code")
+            UserDefaults.standard.setValue(arrayCurrencyCountries, forKey: "currency")
+        }
         
         print(arrayFlagsCountries)
         print(arrayNamesCountries)
         print(arrayCodeCountries)
         print(arrayCurrencyCountries)
+        
+        let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NavigationController") as! NavigationController
+        self.present(loginVC, animated: true, completion: nil)
     }
 }
 

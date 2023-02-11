@@ -273,9 +273,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Добавить валюту" style="editor" id="4v8-EY-cCt">
-                        <barButtonItem key="rightBarButtonItem" title="Сохранить" id="BXS-Ss-VXY">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="qPC-nx-ba2">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="WD5-6M-Ztf">
+                                <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="saveButtonClick:" destination="aFj-df-DAw" eventType="touchUpInside" id="fH3-Gi-lBW"/>
+                                </connections>
+                            </button>
                             <connections>
-                                <segue destination="DIa-rL-XGp" kind="presentation" id="bs7-V2-SSu"/>
+                                <segue destination="DIa-rL-XGp" kind="show" id="U4G-pX-gc5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
