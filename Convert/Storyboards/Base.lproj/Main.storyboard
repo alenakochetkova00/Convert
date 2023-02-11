@@ -155,7 +155,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nX0-9J-tKC">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nX0-9J-tKC">
                                 <rect key="frame" x="31" y="142" width="174" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="4Fy-1k-Xt3"/>
@@ -290,7 +290,7 @@
         <!--Navigation Controller-->
         <scene sceneID="FHg-bc-rdr">
             <objects>
-                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="DIa-rL-XGp" customClass="NavigationController" customModule="Convert" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="NavigationController" storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="DIa-rL-XGp" customClass="NavigationController" customModule="Convert" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="WwP-N1-R8C"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wEZ-fo-rBv">

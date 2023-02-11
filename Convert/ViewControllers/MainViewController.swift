@@ -14,7 +14,7 @@ class MainViewController: UIViewController {
     var codes = [String]()
     var currency = [Double]()
     
-    var USD: Double = 1.0
+    var usd: Double = 1.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,8 +59,8 @@ class MainViewController: UIViewController {
         if UserDefaults.standard.object(forKey: "currency") != nil {
             currency = UserDefaults.standard.object(forKey: "currency") as? [Double] ?? []
         }
-        if UserDefaults.standard.object(forKey: "USD") != nil {
-            USD = UserDefaults.standard.object(forKey: "USD") as? Double ?? 1.0
+        if UserDefaults.standard.object(forKey: "usd") != nil {
+            usd = UserDefaults.standard.object(forKey: "usd") as? Double ?? 1.0
         }
     }
 }
@@ -90,7 +90,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         cell.flagCountries.text = flag[indexPath.row] 
         cell.nameCountries.text = name[indexPath.row]
         cell.codeCountries.text = codes[indexPath.row]
-        cell.currencyCountries.text = String(Float32(currency[indexPath.row] * USD))
+        cell.currencyCountries.text = String(Float32(currency[indexPath.row] * usd).formattedWithSeparator)
        
         return cell
     }
