@@ -25,6 +25,8 @@ class InputCurrency: UIViewController {
         super.viewDidLoad()
         
         addDoneButtonOnKeyboard()
+        
+        currencyCountries.becomeFirstResponder()
 
         if UserDefaults.standard.object(forKey: "flagCountries") != nil {
             flag = UserDefaults.standard.object(forKey: "flagCountries") as? String ?? ""

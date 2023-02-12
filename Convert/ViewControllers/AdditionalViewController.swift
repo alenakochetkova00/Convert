@@ -545,121 +545,129 @@ class AdditionalViewController: UIViewController {
         self.tableView.isEditing = true
         self.tableView.allowsMultipleSelectionDuringEditing = true
         
-        getData()
-    }
-    
-    func getData() {
-        
-        let url = URL(string: "https://open.er-api.com/v6/latest/USD")
-        
-        let session = URLSession.shared
-        
-        let task = session.dataTask(with: url!) { data, response, error in
+        for index in 0..<arrayNamesCountries.count {
             
-            if error != nil {
-                print(error?.localizedDescription as Any)
+            self.tableView.selectRow(at: IndexPath(row: index, section: 0), animated: false, scrollPosition: .none)
+        }
+            
+            
+            getData()
+        }
+        
+        func getData() {
+            
+            let url = URL(string: "https://open.er-api.com/v6/latest/USD")
+            
+            let session = URLSession.shared
+            
+            let task = session.dataTask(with: url!) { data, response, error in
                 
-            } else {
-                
-                if data != nil {
+                if error != nil {
+                    print(error?.localizedDescription as Any)
                     
-                    do {
-                        let jsonResponse = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! Dictionary<String, Any>
+                } else {
+                    
+                    if data != nil {
                         
-                        print(jsonResponse)
-                        
-                        DispatchQueue.main.async { [self] in
+                        do {
+                            let jsonResponse = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! Dictionary<String, Any>
                             
-                            let array = Array(jsonResponse["rates"] as! [String : Double])
-
-                            for (key, value) in array {
-                               
-                               var entity = CurrencyConversion()
-                               entity.code = key
-                               entity.value = value
-                               self.list.updateValue(value, forKey: key)
+                            print(jsonResponse)
+                            
+                            DispatchQueue.main.async { [self] in
                                 
-                            }
-
-                            for (keys, values) in Array(list).sorted(by: {$0.0 < $1.0}) {
+                                let array = Array(jsonResponse["rates"] as! [String : Double])
                                 
-                                for (key, value) in Array(listCodeCountries) {
-                                    if value == keys {
-                                        vocabularyCodeCountriesList.append(value)
-                                        listCurrencyText.append(keys)
-                                        vocabularyCurrencyCountriesList.append(values)
-                                        
-                                        for (keyis, valuis) in Array(dictionaryNamesCountries) {
-                                            if keyis == key {
-                                                vocabularyNameCountriesList.append(valuis)
-                                                
-                                                for (keiz, valuez) in Array(vocabularyFlagsCountries) {
-                                                    if keiz == valuis {
-                                                        vocabularyFlagsCountriesList.append(valuez)
-                                                        
+                                for (key, value) in array {
+                                    
+                                    var entity = CurrencyConversion()
+                                    entity.code = key
+                                    entity.value = value
+                                    self.list.updateValue(value, forKey: key)
+                                    
+                                }
+                                
+                                for (keys, values) in Array(list).sorted(by: {$0.0 < $1.0}) {
+                                    
+                                    for (key, value) in Array(listCodeCountries) {
+                                        if value == keys {
+                                            vocabularyCodeCountriesList.append(value)
+                                            listCurrencyText.append(keys)
+                                            vocabularyCurrencyCountriesList.append(values)
+                                            
+                                            for (keyis, valuis) in Array(dictionaryNamesCountries) {
+                                                if keyis == key {
+                                                    vocabularyNameCountriesList.append(valuis)
+                                                    
+                                                    for (keiz, valuez) in Array(vocabularyFlagsCountries) {
+                                                        if keiz == valuis {
+                                                            vocabularyFlagsCountriesList.append(valuez)
+                                                            
+                                                        }
                                                     }
                                                 }
                                             }
                                         }
                                     }
                                 }
+                                print(list)
+                                print(listCodeCountries.count)
+                                print(vocabularyFlagsCountriesList.count)
+                                print(vocabularyNameCountriesList.count)
+                                print(vocabularyCodeCountriesList)
+                                self.tableView.reloadData()
                             }
-                            print(list)
-                            print(listCodeCountries.count)
-                            print(vocabularyFlagsCountriesList.count)
-                            print(vocabularyNameCountriesList.count)
-                            print(vocabularyCodeCountriesList)
-                            self.tableView.reloadData()
+                            
+                        } catch {
+                            print("error")
                         }
                         
-                    } catch {
-                        print("error")
                     }
+                }
+            }
+            task.resume()
+        }
+        
+        func selectDeselectCell(tabelView: UITableView, indexPath: IndexPath) {
+            
+            arrayFlagsCountries.removeAll()
+            arrayNamesCountries.removeAll()
+            arrayCodeCountries.removeAll()
+            arrayCurrencyCountries.removeAll()
+            
+            if UserDefaults.standard.object(forKey: "flag") != nil {
+                arrayFlagsCountries = UserDefaults.standard.object(forKey: "flag") as? [String] ?? []
+            }
+            if UserDefaults.standard.object(forKey: "name") != nil {
+                arrayNamesCountries = UserDefaults.standard.object(forKey: "name") as? [String] ?? []
+            }
+            if UserDefaults.standard.object(forKey: "code") != nil {
+                arrayCodeCountries = UserDefaults.standard.object(forKey: "code") as? [String] ?? []
+            }
+            if UserDefaults.standard.object(forKey: "currency") != nil {
+                arrayCurrencyCountries = UserDefaults.standard.object(forKey: "currency") as? [Double] ?? []
+            }
+            
+            
+            if let array = tableView.indexPathsForSelectedRows {
+                for index in array {
                     
+                    if !arrayNamesCountries.contains(vocabularyNameCountriesList[index.row]) {
+                        arrayCodeCountries.insert(vocabularyCodeCountriesList[index.row], at: 0)
+                        arrayCurrencyCountries.insert(vocabularyCurrencyCountriesList[index.row], at: 0)
+                        arrayNamesCountries.insert(vocabularyNameCountriesList[index.row], at: 0)
+                        arrayFlagsCountries.insert(vocabularyFlagsCountriesList[index.row], at: 0)
+                    }
                 }
             }
+            print(arrayFlagsCountries)
+            print(arrayNamesCountries)
+            print(arrayCodeCountries)
+            print(arrayCurrencyCountries)
         }
-        task.resume()
-    }
-    
-    func selectDeselectCell(tabelView: UITableView, indexPath: IndexPath) {
-        
-        arrayFlagsCountries.removeAll()
-        arrayNamesCountries.removeAll()
-        arrayCodeCountries.removeAll()
-        arrayCurrencyCountries.removeAll()
-        
-        if UserDefaults.standard.object(forKey: "flag") != nil {
-            arrayFlagsCountries = UserDefaults.standard.object(forKey: "flag") as? [String] ?? []
-        }
-        if UserDefaults.standard.object(forKey: "name") != nil {
-            arrayNamesCountries = UserDefaults.standard.object(forKey: "name") as? [String] ?? []
-        }
-        if UserDefaults.standard.object(forKey: "code") != nil {
-            arrayCodeCountries = UserDefaults.standard.object(forKey: "code") as? [String] ?? []
-        }
-        if UserDefaults.standard.object(forKey: "currency") != nil {
-            arrayCurrencyCountries = UserDefaults.standard.object(forKey: "currency") as? [Double] ?? []
-        }
-        
-        if let array = tableView.indexPathsForSelectedRows {
-            for index in array {
-                
-                if !arrayNamesCountries.contains(vocabularyNameCountriesList[index.row]) {
-                    arrayCodeCountries.insert(vocabularyCodeCountriesList[index.row], at: 0)
-                    arrayCurrencyCountries.insert(vocabularyCurrencyCountriesList[index.row], at: 0)
-                    arrayNamesCountries.insert(vocabularyNameCountriesList[index.row], at: 0)
-                    arrayFlagsCountries.insert(vocabularyFlagsCountriesList[index.row], at: 0)
-                }
-            }
-        }
-        print(arrayFlagsCountries)
-        print(arrayNamesCountries)
-        print(arrayCodeCountries)
-        print(arrayCurrencyCountries)
-    }
     
     @IBAction func saveButtonClick(_ sender: Any) {
+
         
         if arrayNamesCountries != [] {
             UserDefaults.standard.setValue(arrayFlagsCountries, forKey: "flag")
