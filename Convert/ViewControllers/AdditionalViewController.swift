@@ -545,8 +545,24 @@ class AdditionalViewController: UIViewController {
         self.tableView.isEditing = true
         self.tableView.allowsMultipleSelectionDuringEditing = true
             
+            setupNavigationBar()
             getData()
         }
+    
+    func setupNavigationBar() {
+        
+        navigationController!.navigationBar.tintColor = UIColor.orange
+        
+        let navBarApperance = UINavigationBarAppearance()
+        navBarApperance.configureWithOpaqueBackground()
+        navBarApperance.titleTextAttributes = [.foregroundColor: UIColor.black]
+        navBarApperance.largeTitleTextAttributes = [.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont(descriptor: UIFontDescriptor(name: "Futura Bold", size: 25), size: 25)]
+        
+        navBarApperance.backgroundColor = UIColor(red: 225/225, green: 225/225, blue: 225/225, alpha: 225/225)
+        
+        navigationController?.navigationBar.standardAppearance = navBarApperance
+        navigationController?.navigationBar.scrollEdgeAppearance = navBarApperance
+    }
         
         func getData() {
             
@@ -647,8 +663,6 @@ class AdditionalViewController: UIViewController {
             if let array = tableView.indexPathsForSelectedRows {
                 for index in array {
                     
-                    self.tableView.selectRow(at: IndexPath(row: index.row, section: 0), animated: false, scrollPosition: .none)
-                    
                     if !arrayNamesCountries.contains(vocabularyNameCountriesList[index.row]) {
                         arrayCodeCountries.insert(vocabularyCodeCountriesList[index.row], at: 0)
                         arrayCurrencyCountries.insert(vocabularyCurrencyCountriesList[index.row], at: 0)
@@ -667,7 +681,7 @@ class AdditionalViewController: UIViewController {
     @IBAction func saveButtonClick(_ sender: Any) {
 
         
-        if arrayNamesCountries != [] {
+        if arrayCodeCountries != [] {
             UserDefaults.standard.setValue(arrayFlagsCountries, forKey: "flag")
             UserDefaults.standard.setValue(arrayNamesCountries, forKey: "name")
             UserDefaults.standard.setValue(arrayCodeCountries, forKey: "code")
@@ -700,17 +714,17 @@ extension AdditionalViewController: UITableViewDataSource, UITableViewDelegate {
         cell.flagCountries.text = String(vocabularyFlagsCountriesList[indexPath.row])
         cell.nameCountries.text = String(vocabularyNameCountriesList[indexPath.row])
         cell.codeCountries.text = String(vocabularyCodeCountriesList[indexPath.row])
-
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.selectDeselectCell(tabelView: tableView, indexPath: indexPath)
         
         var i = 0
         var j = 0
         
         for _ in vocabularyNameCountriesList {
+            
+            if UserDefaults.standard.object(forKey: "name") != nil {
+                arrayNamesCountries = UserDefaults.standard.object(forKey: "name") as? [String] ?? []
+            } else {
+                arrayNamesCountries = ["error..."]
+            }
             
             if vocabularyNameCountriesList[i] == arrayNamesCountries[j] {
                 print(arrayNamesCountries[j])
@@ -726,6 +740,12 @@ extension AdditionalViewController: UITableViewDataSource, UITableViewDelegate {
                 i += 1
             }
         }
+
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectDeselectCell(tabelView: tableView, indexPath: indexPath)
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {

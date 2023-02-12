@@ -34,7 +34,7 @@
                                                         <constraint firstAttribute="width" constant="53" id="F9V-Ms-uz0"/>
                                                         <constraint firstAttribute="height" constant="14" id="znK-7h-kLr"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="12"/>
                                                     <color key="textColor" systemColor="systemGrayColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -49,40 +49,53 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="United Arab Emirates" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bR3-Rf-zvv">
-                                                    <rect key="frame" x="68" y="31" width="167" height="18"/>
+                                                    <rect key="frame" x="68" y="31" width="180" height="18"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="width" constant="180" id="0ZQ-eP-1zD"/>
                                                         <constraint firstAttribute="height" constant="18" id="fQq-o2-iZc"/>
-                                                        <constraint firstAttribute="width" constant="167" id="kvV-8v-Uik"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.36151734" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j1o-i3-5qk">
-                                                    <rect key="frame" x="272" y="24" width="101" height="18"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cV6-Il-shR">
+                                                    <rect key="frame" x="264" y="15" width="109" height="36"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1 373 973,785 " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0M-qk-dcx">
+                                                            <rect key="frame" x="3" y="10" width="98" height="18"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="18" id="PlI-Ye-Cck"/>
+                                                                <constraint firstAttribute="width" constant="98" id="tK3-eV-vp6"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="18" id="jrS-MM-fOQ"/>
-                                                        <constraint firstAttribute="width" constant="101" id="uTC-lz-fah"/>
+                                                        <constraint firstAttribute="trailing" secondItem="d0M-qk-dcx" secondAttribute="trailing" constant="6" id="PFA-i5-T5c"/>
+                                                        <constraint firstItem="d0M-qk-dcx" firstAttribute="top" secondItem="cV6-Il-shR" secondAttribute="top" constant="10" id="Slh-GB-kk6"/>
+                                                        <constraint firstAttribute="width" constant="109" id="at4-lb-Qi9"/>
+                                                        <constraint firstAttribute="height" constant="36" id="sgN-FR-qEE"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="MDO-sN-Mir" firstAttribute="top" secondItem="dC5-Pf-pJP" secondAttribute="topMargin" constant="1" id="BL9-6C-FR6"/>
-                                                <constraint firstItem="j1o-i3-5qk" firstAttribute="trailing" secondItem="dC5-Pf-pJP" secondAttribute="trailingMargin" id="Grc-xq-Hc2"/>
                                                 <constraint firstItem="2ID-0e-6oD" firstAttribute="leading" secondItem="MDO-sN-Mir" secondAttribute="trailing" constant="8" symbolic="YES" id="Jjq-SM-2sz"/>
-                                                <constraint firstItem="j1o-i3-5qk" firstAttribute="top" secondItem="dC5-Pf-pJP" secondAttribute="topMargin" constant="13" id="LqK-P2-BFj"/>
+                                                <constraint firstItem="cV6-Il-shR" firstAttribute="top" secondItem="dC5-Pf-pJP" secondAttribute="topMargin" constant="4" id="TfU-C5-H2m"/>
                                                 <constraint firstItem="2ID-0e-6oD" firstAttribute="top" secondItem="dC5-Pf-pJP" secondAttribute="topMargin" constant="4" id="VcV-Dh-j95"/>
                                                 <constraint firstItem="bR3-Rf-zvv" firstAttribute="top" secondItem="2ID-0e-6oD" secondAttribute="bottom" constant="2" id="d1i-WA-fds"/>
+                                                <constraint firstItem="cV6-Il-shR" firstAttribute="trailing" secondItem="dC5-Pf-pJP" secondAttribute="trailingMargin" id="kdS-bE-tq0"/>
                                                 <constraint firstItem="bR3-Rf-zvv" firstAttribute="leading" secondItem="MDO-sN-Mir" secondAttribute="trailing" constant="8" symbolic="YES" id="leW-sx-zKb"/>
                                                 <constraint firstItem="MDO-sN-Mir" firstAttribute="leading" secondItem="dC5-Pf-pJP" secondAttribute="leadingMargin" id="yXM-DS-EQS"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="backgroundCurrency" destination="cV6-Il-shR" id="AKy-6g-qDf"/>
                                             <outlet property="codeCountries" destination="2ID-0e-6oD" id="B5m-65-uuw"/>
-                                            <outlet property="currencyCountries" destination="j1o-i3-5qk" id="tai-9E-7lc"/>
+                                            <outlet property="currencyCountries" destination="d0M-qk-dcx" id="xoN-RI-pKo"/>
                                             <outlet property="flagCountries" destination="MDO-sN-Mir" id="vJX-vo-xnj"/>
                                             <outlet property="nameCountries" destination="bR3-Rf-zvv" id="r6p-fl-HBK"/>
                                             <segue destination="rZB-gq-wun" kind="presentation" id="1eN-n4-G0Y"/>
@@ -96,7 +109,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HzV-FI-AGE"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="rDZ-2a-BEb" secondAttribute="bottom" id="Bvn-Np-UCP"/>
                             <constraint firstItem="rDZ-2a-BEb" firstAttribute="top" secondItem="HzV-FI-AGE" secondAttribute="top" id="PP5-G8-NNn"/>
@@ -107,6 +120,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Конвертер валют" id="yjO-8k-awt">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="j8V-7h-gvi">
+                            <color key="tintColor" systemColor="systemOrangeColor"/>
                             <connections>
                                 <segue destination="aFj-df-DAw" kind="show" identifier="" id="XUd-VG-F99"/>
                             </connections>
@@ -139,19 +153,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gG-qH-Jyh">
-                                <rect key="frame" x="79" y="79" width="126" height="15"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="15" id="jrR-uR-f6g"/>
-                                    <constraint firstAttribute="width" constant="126" id="nG5-cU-DxF"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                                <color key="textColor" systemColor="systemGrayColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="United Arab Emirates" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="39L-gT-S21">
-                                <rect key="frame" x="79" y="98" width="268" height="18"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <rect key="frame" x="79" y="98" width="268" height="19.666666666666671"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -164,6 +168,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gG-qH-Jyh">
+                                <rect key="frame" x="79" y="84" width="75" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="JH0-Ta-Gw6"/>
+                                    <constraint firstAttribute="width" constant="75" id="aYd-O5-arP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="12"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pvf-Pm-3FL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -171,12 +185,12 @@
                             <constraint firstItem="nX0-9J-tKC" firstAttribute="top" secondItem="rHW-Oe-6xx" secondAttribute="bottom" constant="21" id="1Yc-Rg-ob6"/>
                             <constraint firstItem="rHW-Oe-6xx" firstAttribute="top" secondItem="pvf-Pm-3FL" secondAttribute="top" constant="20" id="2Af-fM-WgD"/>
                             <constraint firstItem="39L-gT-S21" firstAttribute="leading" secondItem="rHW-Oe-6xx" secondAttribute="trailing" constant="8" symbolic="YES" id="4vB-Te-AMU"/>
+                            <constraint firstItem="39L-gT-S21" firstAttribute="top" secondItem="pvf-Pm-3FL" secondAttribute="top" constant="39" id="5sk-T0-E64"/>
                             <constraint firstItem="nX0-9J-tKC" firstAttribute="leading" secondItem="pvf-Pm-3FL" secondAttribute="leading" constant="31" id="Aj7-w8-sp2"/>
-                            <constraint firstItem="7gG-qH-Jyh" firstAttribute="top" secondItem="pvf-Pm-3FL" secondAttribute="top" constant="20" id="IT2-JN-z7y"/>
-                            <constraint firstItem="7gG-qH-Jyh" firstAttribute="leading" secondItem="rHW-Oe-6xx" secondAttribute="trailing" constant="8" symbolic="YES" id="N5N-NE-v7q"/>
+                            <constraint firstItem="7gG-qH-Jyh" firstAttribute="top" secondItem="pvf-Pm-3FL" secondAttribute="top" constant="25" id="btK-hE-Oh9"/>
                             <constraint firstItem="rHW-Oe-6xx" firstAttribute="leading" secondItem="pvf-Pm-3FL" secondAttribute="leading" constant="31" id="cF0-xY-taG"/>
-                            <constraint firstItem="39L-gT-S21" firstAttribute="top" secondItem="7gG-qH-Jyh" secondAttribute="bottom" constant="4" id="cyA-r8-wHB"/>
                             <constraint firstItem="pvf-Pm-3FL" firstAttribute="trailing" secondItem="39L-gT-S21" secondAttribute="trailing" constant="46" id="jk7-SF-Gz7"/>
+                            <constraint firstItem="7gG-qH-Jyh" firstAttribute="leading" secondItem="rHW-Oe-6xx" secondAttribute="trailing" constant="8" symbolic="YES" id="sIa-tl-FlD"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="XfM-Q2-Qox"/>
@@ -191,7 +205,7 @@
             </objects>
             <point key="canvasLocation" x="6214.5038167938928" y="721.83098591549299"/>
         </scene>
-        <!--Добавить валюту-->
+        <!--Выберите валюту-->
         <scene sceneID="Vrc-Eb-8Ct">
             <objects>
                 <viewController restorationIdentifier="AdditionalViewController" storyboardIdentifier="AdditionalViewController" id="aFj-df-DAw" customClass="AdditionalViewController" customModule="Convert" customModuleProvider="target" sceneMemberID="viewController">
@@ -200,7 +214,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jPq-ag-C5b">
-                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
+                                <rect key="frame" x="0.0" y="155" width="393" height="697"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="65" id="sdu-5z-KJd" customClass="AdditionalTableViewCell" customModule="Convert" customModuleProvider="target">
@@ -216,7 +230,7 @@
                                                         <constraint firstAttribute="height" constant="18" id="aq7-0r-bir"/>
                                                         <constraint firstAttribute="width" constant="250" id="rMN-AA-zf8"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -236,7 +250,7 @@
                                                         <constraint firstAttribute="height" constant="18" id="3ex-Dh-ahq"/>
                                                         <constraint firstAttribute="width" constant="68" id="JBs-ql-vIs"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="12"/>
                                                     <color key="textColor" systemColor="systemGrayColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -264,7 +278,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZK9-4u-8ME"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="jPq-ag-C5b" firstAttribute="top" secondItem="ZK9-4u-8ME" secondAttribute="top" id="FOB-4T-Z1E"/>
                             <constraint firstItem="ZK9-4u-8ME" firstAttribute="trailing" secondItem="jPq-ag-C5b" secondAttribute="trailing" id="GbD-Vf-vNc"/>
@@ -272,17 +286,12 @@
                             <constraint firstItem="jPq-ag-C5b" firstAttribute="leading" secondItem="ZK9-4u-8ME" secondAttribute="leading" id="q0T-XX-Ims"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Добавить валюту" style="editor" id="4v8-EY-cCt">
-                        <barButtonItem key="rightBarButtonItem" title="Сохранить" style="plain" id="qPC-nx-ba2">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="WD5-6M-Ztf">
-                                <rect key="frame" x="267.66666666666669" y="5" width="109.33333333333331" height="34.333333333333336"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Сохранить"/>
-                                <connections>
-                                    <action selector="saveButtonClick:" destination="aFj-df-DAw" eventType="touchUpInside" id="fH3-Gi-lBW"/>
-                                </connections>
-                            </button>
+                    <navigationItem key="navigationItem" title="Выберите валюту" style="editor" id="4v8-EY-cCt">
+                        <barButtonItem key="rightBarButtonItem" image="pencil.circle" catalog="system" style="plain" id="qPC-nx-ba2">
+                            <color key="tintColor" systemColor="systemOrangeColor"/>
+                            <connections>
+                                <action selector="saveButtonClick:" destination="aFj-df-DAw" id="hh4-AR-NEX"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -299,12 +308,17 @@
                 <navigationController restorationIdentifier="NavigationController" storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="DIa-rL-XGp" customClass="NavigationController" customModule="Convert" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="WwP-N1-R8C"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wEZ-fo-rBv">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="wEZ-fo-rBv">
+                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <navigationBarAppearance key="scrollEdgeAppearance"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="barTintColor">
+                            <color key="value" systemColor="labelColor"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="h0a-oe-jHR" kind="relationship" relationship="rootViewController" id="cEf-EB-lPS"/>
                     </connections>
@@ -314,12 +328,20 @@
             <point key="canvasLocation" x="5489.3129770992364" y="42.95774647887324"/>
         </scene>
     </scenes>
+    <color key="tintColor" systemColor="systemOrangeColor"/>
     <resources>
+        <image name="pencil.circle" catalog="system" width="128" height="123"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

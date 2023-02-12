@@ -70,7 +70,8 @@ class InputCurrency: UIViewController {
             doneToolbar.barStyle = .default
 
             let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-            let done: UIBarButtonItem = UIBarButtonItem(title: "OK", style: .done, target: self, action: #selector(self.doneButtonAction))
+            let done: UIBarButtonItem = UIBarButtonItem(title: "ok", style: .done, target: self, action: #selector(self.doneButtonAction))
+        done.tintColor = .orange
 
             let items = [flexSpace, done]
             doneToolbar.items = items

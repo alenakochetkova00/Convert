@@ -14,7 +14,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         self.tableView.reloadData()
         
         if NetworkMonitor.shared.isConnected {
@@ -32,6 +32,7 @@ class MainViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
         
+        setupNavigationBar()
         dataStorage()
         
     }
@@ -40,6 +41,21 @@ class MainViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.tableView.reloadData()
+    }
+    
+    func setupNavigationBar() {
+        
+        navigationController!.navigationBar.tintColor = UIColor.orange
+        
+        let navBarApperance = UINavigationBarAppearance()
+        navBarApperance.configureWithOpaqueBackground()
+        navBarApperance.titleTextAttributes = [.foregroundColor: UIColor.black]
+        navBarApperance.largeTitleTextAttributes = [.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont(descriptor: UIFontDescriptor(name: "Futura Bold", size: 25), size: 25)]
+        
+        navBarApperance.backgroundColor = UIColor(red: 225/225, green: 225/225, blue: 225/225, alpha: 225/225)
+        
+        navigationController?.navigationBar.standardAppearance = navBarApperance
+        navigationController?.navigationBar.scrollEdgeAppearance = navBarApperance
     }
     
     func dataStorage() {
@@ -86,7 +102,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         cell.flagCountries.text = flag[indexPath.row] 
         cell.nameCountries.text = name[indexPath.row]
         cell.codeCountries.text = codes[indexPath.row]
-        cell.currencyCountries.text = String(Float32(currency[indexPath.row] * usd).formattedWithSeparator)
+        cell.currencyCountries.text = String(Float32(currency[indexPath.row] * usd).formattedWithSeparator) + " "
        
         return cell
     }
@@ -135,3 +151,5 @@ extension Formatter {
 extension Numeric {
     var formattedWithSeparator: String { Formatter.withSeparator.string(for: self) ?? "" }
 }
+
+
