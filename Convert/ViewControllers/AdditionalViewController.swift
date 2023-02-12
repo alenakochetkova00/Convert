@@ -544,12 +544,6 @@ class AdditionalViewController: UIViewController {
         
         self.tableView.isEditing = true
         self.tableView.allowsMultipleSelectionDuringEditing = true
-        
-        for index in 0..<arrayNamesCountries.count {
-            
-            self.tableView.selectRow(at: IndexPath(row: index, section: 0), animated: false, scrollPosition: .none)
-        }
-            
             
             getData()
         }
@@ -610,6 +604,7 @@ class AdditionalViewController: UIViewController {
                                         }
                                     }
                                 }
+                                
                                 print(list)
                                 print(listCodeCountries.count)
                                 print(vocabularyFlagsCountriesList.count)
@@ -652,6 +647,8 @@ class AdditionalViewController: UIViewController {
             if let array = tableView.indexPathsForSelectedRows {
                 for index in array {
                     
+                    self.tableView.selectRow(at: IndexPath(row: index.row, section: 0), animated: false, scrollPosition: .none)
+                    
                     if !arrayNamesCountries.contains(vocabularyNameCountriesList[index.row]) {
                         arrayCodeCountries.insert(vocabularyCodeCountriesList[index.row], at: 0)
                         arrayCurrencyCountries.insert(vocabularyCurrencyCountriesList[index.row], at: 0)
@@ -660,6 +657,7 @@ class AdditionalViewController: UIViewController {
                     }
                 }
             }
+            
             print(arrayFlagsCountries)
             print(arrayNamesCountries)
             print(arrayCodeCountries)
@@ -708,6 +706,26 @@ extension AdditionalViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectDeselectCell(tabelView: tableView, indexPath: indexPath)
+        
+        var i = 0
+        var j = 0
+        
+        for _ in vocabularyNameCountriesList {
+            
+            if vocabularyNameCountriesList[i] == arrayNamesCountries[j] {
+                print(arrayNamesCountries[j])
+                tableView.selectRow(at: IndexPath(row: i, section: 0), animated: false, scrollPosition: .none)
+                
+                i = 0
+                if j < (arrayNamesCountries.count - 1) {
+                    j += 1
+                } else {
+                    break
+                }
+            } else {
+                i += 1
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
