@@ -527,7 +527,7 @@ class AdditionalViewController: UIViewController {
                                     "South Africa": "🇿🇦",
                                     "Zambia": "🇿🇲",
                                     "Zimbabwe": "🇿🇼"]
-
+    
     var vocabularyCodeCountriesList = [String]()
     var vocabularyNameCountriesList = [String]()
     var vocabularyFlagsCountriesList = [String]()
@@ -618,9 +618,8 @@ class AdditionalViewController: UIViewController {
                                         }
                                     }
                                 }
-                                
-                                
-                                print(vocabularyCodeCountriesList.count)
+                            
+                                print(vocabularyCurrencyCountriesList.count)
                                 print(vocabularyFlagsCountriesList.count)
                                 print(vocabularyNameCountriesList.count)
                                 print(vocabularyCodeCountriesList.count)
