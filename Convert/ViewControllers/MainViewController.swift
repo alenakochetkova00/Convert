@@ -1,10 +1,11 @@
-
 import UIKit
 
+// MARK: - View View Controller
 class MainViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
+    // enter all variables
     var flag = [String]()
     var name = [String]()
     var codes = [String]()
@@ -17,6 +18,7 @@ class MainViewController: UIViewController {
     
         self.tableView.reloadData()
         
+        // if there is no internet, display alert and close the program
         if NetworkMonitor.shared.isConnected {
             print("connected")
         } else {
@@ -43,6 +45,8 @@ class MainViewController: UIViewController {
         self.tableView.reloadData()
     }
     
+    
+// MARK: - Visual rendering of the Navigation Bar
     func setupNavigationBar() {
         
         navigationController!.navigationBar.tintColor = UIColor.orange
@@ -58,6 +62,8 @@ class MainViewController: UIViewController {
         navigationController?.navigationBar.scrollEdgeAppearance = navBarApperance
     }
     
+    
+// MARK: - Assigning Data to variables from Memory
     func dataStorage() {
         if UserDefaults.standard.object(forKey: "flag") != nil {
             flag = UserDefaults.standard.object(forKey: "flag") as? [String] ?? []
@@ -78,6 +84,7 @@ class MainViewController: UIViewController {
 }
 
 
+// MARK: - Table View Controller (value output)
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     
    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -91,14 +98,6 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellOnMainScreen", for: indexPath) as! MainTableViewCell
         
-        lazy var numberFormatter: NumberFormatter = {
-          let nf = NumberFormatter()
-          nf.minimumFractionDigits = 2
-          nf.maximumFractionDigits = 2
-
-          return nf
-        }()
-        
         cell.flagCountries.text = flag[indexPath.row] 
         cell.nameCountries.text = name[indexPath.row]
         cell.codeCountries.text = codes[indexPath.row]
@@ -111,8 +110,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    
-    // MARK: - Removing Data from a TableView
+    // removing Data from a TableView
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
@@ -139,6 +137,8 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+
+// MARK: - Tools needed to format data
 extension Formatter {
     static let withSeparator: NumberFormatter = {
         let formatter = NumberFormatter()

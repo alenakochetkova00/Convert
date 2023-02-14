@@ -1,7 +1,7 @@
-
 import Foundation
 import Network
 
+// MARK: - Checking if there is an internet connection
 final class NetworkMonitor {
     
     static let shared = NetworkMonitor()
