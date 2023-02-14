@@ -88,7 +88,7 @@ class InputCurrency: UIViewController {
             currencyCountries.resignFirstResponder()
             
             currencyNew = currencyCountries.text ?? ""
-            usd = Double(currencyNew)! / currencyLast
+            usd = Double(currencyNew) ?? currencyLast / currencyLast
         
             UserDefaults.standard.setValue(usd, forKey: "usd")
             
