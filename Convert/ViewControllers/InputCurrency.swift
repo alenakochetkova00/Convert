@@ -18,7 +18,7 @@ class InputCurrency: UIViewController {
     var currency: String = ""
     
     var currencyLast: Double = 0.0
-    var currencyNew: String = ""
+    var currencyNew: Double = 0.0
     
     var usd: Double = 0.0
     
@@ -53,7 +53,7 @@ class InputCurrency: UIViewController {
         flagCountries.text = flag
         nameCountries.text = name
         codeCountries.text = code
-        currencyCountries.text = String(currency)
+        currencyCountries.placeholder = currency
         
         // we form the value of the currency, in relation to the dollar
         var i = 0
@@ -91,8 +91,8 @@ class InputCurrency: UIViewController {
         
         currencyCountries.resignFirstResponder()
         
-        currencyNew = currencyCountries.text ?? ""
-        usd = Double(currencyNew) ?? currencyLast / currencyLast
+        currencyNew = Double(currencyCountries.text ?? "") ?? 0.0
+        usd = currencyNew / currencyLast
         
         UserDefaults.standard.setValue(usd, forKey: "usd")
     }
