@@ -92,6 +92,7 @@
                                                 <constraint firstItem="MDO-sN-Mir" firstAttribute="leading" secondItem="dC5-Pf-pJP" secondAttribute="leadingMargin" id="yXM-DS-EQS"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="backgroundCurrency" destination="cV6-Il-shR" id="AKy-6g-qDf"/>
                                             <outlet property="codeCountries" destination="2ID-0e-6oD" id="B5m-65-uuw"/>
@@ -264,6 +265,7 @@
                                                 <constraint firstItem="NFQ-HG-m9Q" firstAttribute="top" secondItem="ev5-Qd-3HS" secondAttribute="bottom" id="yiP-Z0-eQe"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="codeCountries" destination="ev5-Qd-3HS" id="WlI-tY-zhm"/>
                                             <outlet property="flagCountries" destination="PVb-l3-NVr" id="SQb-4D-yuv"/>
