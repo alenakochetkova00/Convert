@@ -120,16 +120,6 @@ class AdditionalViewController: UIViewController {
 // MARK: - Actions when the "save" button is clicked
     @IBAction func saveButtonClick(_ sender: Any) {
         
-        print(arrayNamesCountries)
-        
-        // insert array values ​​into device memory
-        if arrayCodeCountries != [] {
-            UserDefaults.standard.setValue(arrayFlagsCountries, forKey: "flag")
-            UserDefaults.standard.setValue(arrayNamesCountries, forKey: "name")
-            UserDefaults.standard.setValue(arrayCodeCountries, forKey: "code")
-            UserDefaults.standard.setValue(arrayCurrencyCountries, forKey: "currency")
-        }
-        
         // go to navigation controller
         let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NavigationController") as! NavigationController
         self.present(loginVC, animated: true, completion: nil)
@@ -205,6 +195,12 @@ extension AdditionalViewController: UITableViewDataSource, UITableViewDelegate {
             arrayCurrencyCountries.insert(countiesArr[indexPath.row].vocabularyCurrencyCountriesList, at: 0)
             arrayNamesCountries.insert(countiesArr[indexPath.row].vocabularyNameCountriesList, at: 0)
             arrayFlagsCountries.insert(countiesArr[indexPath.row].vocabularyFlagsCountriesList, at: 0)
+        
+        UserDefaults.standard.setValue(arrayFlagsCountries, forKey: "flag")
+        UserDefaults.standard.setValue(arrayNamesCountries, forKey: "name")
+        UserDefaults.standard.setValue(arrayCodeCountries, forKey: "code")
+        UserDefaults.standard.setValue(arrayCurrencyCountries, forKey: "currency")
+        
             print("connected", arrayNamesCountries)
     }
     
@@ -214,6 +210,11 @@ extension AdditionalViewController: UITableViewDataSource, UITableViewDelegate {
         arrayCurrencyCountries.removeAll(where: { $0 ==  countiesArr[indexPath.row].vocabularyCurrencyCountriesList})
         arrayNamesCountries.removeAll(where: { $0 ==  countiesArr[indexPath.row].vocabularyNameCountriesList})
         arrayFlagsCountries.removeAll(where: { $0 ==  countiesArr[indexPath.row].vocabularyFlagsCountriesList})
+        
+        UserDefaults.standard.setValue(arrayFlagsCountries, forKey: "flag")
+        UserDefaults.standard.setValue(arrayNamesCountries, forKey: "name")
+        UserDefaults.standard.setValue(arrayCodeCountries, forKey: "code")
+        UserDefaults.standard.setValue(arrayCurrencyCountries, forKey: "currency")
         
         print("no connected", arrayNamesCountries)
     }
