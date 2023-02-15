@@ -116,48 +116,11 @@ class AdditionalViewController: UIViewController {
             }
             task.resume()
         }
-        
-    
-// MARK: - Marking selected cells with a checkmark
-        func selectDeselectCell(tabelView: UITableView, indexPath: IndexPath) {
-            
-            // clear arrays
-            arrayFlagsCountries.removeAll()
-            arrayNamesCountries.removeAll()
-            arrayCodeCountries.removeAll()
-            arrayCurrencyCountries.removeAll()
-            
-            // we assign to arrays the values ​​of the variables marked with a checkmark, which we take from memory
-            if UserDefaults.standard.object(forKey: "flag") != nil {
-                arrayFlagsCountries = UserDefaults.standard.object(forKey: "flag") as? [String] ?? []
-            }
-            if UserDefaults.standard.object(forKey: "name") != nil {
-                arrayNamesCountries = UserDefaults.standard.object(forKey: "name") as? [String] ?? []
-            }
-            if UserDefaults.standard.object(forKey: "code") != nil {
-                arrayCodeCountries = UserDefaults.standard.object(forKey: "code") as? [String] ?? []
-            }
-            if UserDefaults.standard.object(forKey: "currency") != nil {
-                arrayCurrencyCountries = UserDefaults.standard.object(forKey: "currency") as? [Double] ?? []
-            }
-            
-            // if a person chooses more and they are unique values, then we add them to the array
-            if let array = tableView.indexPathsForSelectedRows {
-                for index in array {
-                    
-                    if !arrayNamesCountries.contains(countiesArr[index.row].vocabularyNameCountriesList) {
-                        arrayCodeCountries.insert(countiesArr[index.row].vocabularyCodeCurrencyList, at: 0)
-                        arrayCurrencyCountries.insert(countiesArr[index.row].vocabularyCurrencyCountriesList, at: 0)
-                        arrayNamesCountries.insert(countiesArr[index.row].vocabularyNameCountriesList, at: 0)
-                        arrayFlagsCountries.insert(countiesArr[index.row].vocabularyFlagsCountriesList, at: 0)
-                    }
-                }
-            }
-        }
-
     
 // MARK: - Actions when the "save" button is clicked
     @IBAction func saveButtonClick(_ sender: Any) {
+        
+        print(arrayNamesCountries)
         
         // insert array values ​​into device memory
         if arrayCodeCountries != [] {
@@ -186,6 +149,7 @@ extension AdditionalViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AdditionalTableViewCell
+        
         cell.flagCountries.text = String(countiesArr[indexPath.row].vocabularyFlagsCountriesList)
         cell.nameCountries.text = String(countiesArr[indexPath.row].vocabularyNameCountriesList)
         cell.codeCountries.text = String(countiesArr[indexPath.row].vocabularyCodeCurrencyList)
@@ -196,35 +160,61 @@ extension AdditionalViewController: UITableViewDataSource, UITableViewDelegate {
         // the values ​​previously selected by the user are ticked
         for _ in countiesArr {
             
+            //clear arrays
+            arrayFlagsCountries.removeAll()
+            arrayNamesCountries.removeAll()
+            arrayCodeCountries.removeAll()
+            arrayCurrencyCountries.removeAll()
+            
+            if UserDefaults.standard.object(forKey: "flag") != nil {
+                arrayFlagsCountries = UserDefaults.standard.object(forKey: "flag") as? [String] ?? []
+            }
             if UserDefaults.standard.object(forKey: "name") != nil {
                 arrayNamesCountries = UserDefaults.standard.object(forKey: "name") as? [String] ?? []
-            } else {
-                arrayNamesCountries = ["error..."]
+            }
+            if UserDefaults.standard.object(forKey: "code") != nil {
+                arrayCodeCountries = UserDefaults.standard.object(forKey: "code") as? [String] ?? []
+            }
+            if UserDefaults.standard.object(forKey: "currency") != nil {
+                arrayCurrencyCountries = UserDefaults.standard.object(forKey: "currency") as? [Double] ?? []
             }
             
-            if countiesArr[i].vocabularyNameCountriesList == arrayNamesCountries[j] {
-                print(arrayNamesCountries[j])
-                tableView.selectRow(at: IndexPath(row: i, section: 0), animated: false, scrollPosition: .none)
-                
-                i = 0
-                if j < (arrayNamesCountries.count - 1) {
-                    j += 1
+            if arrayNamesCountries != [] {
+                if countiesArr[i].vocabularyNameCountriesList == arrayNamesCountries[j] {
+                    tableView.selectRow(at: IndexPath(row: i, section: 0), animated: false, scrollPosition: .none)
+                    
+                    i = 0
+                    if j < (arrayNamesCountries.count - 1) {
+                        j += 1
+                    } else {
+                        break
+                    }
                 } else {
-                    break
+                    i += 1
                 }
-            } else {
-                i += 1
             }
         }
-        
+    
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.selectDeselectCell(tabelView: tableView, indexPath: indexPath)
+        print(arrayNamesCountries)
+        
+            arrayCodeCountries.insert(countiesArr[indexPath.row].vocabularyCodeCurrencyList, at: 0)
+            arrayCurrencyCountries.insert(countiesArr[indexPath.row].vocabularyCurrencyCountriesList, at: 0)
+            arrayNamesCountries.insert(countiesArr[indexPath.row].vocabularyNameCountriesList, at: 0)
+            arrayFlagsCountries.insert(countiesArr[indexPath.row].vocabularyFlagsCountriesList, at: 0)
+            print("connected", arrayNamesCountries)
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        self.selectDeselectCell(tabelView: tableView, indexPath: indexPath)
+        
+        arrayCodeCountries.removeAll(where: { $0 ==  countiesArr[indexPath.row].vocabularyCodeCurrencyList})
+        arrayCurrencyCountries.removeAll(where: { $0 ==  countiesArr[indexPath.row].vocabularyCurrencyCountriesList})
+        arrayNamesCountries.removeAll(where: { $0 ==  countiesArr[indexPath.row].vocabularyNameCountriesList})
+        arrayFlagsCountries.removeAll(where: { $0 ==  countiesArr[indexPath.row].vocabularyFlagsCountriesList})
+        
+        print("no connected", arrayNamesCountries)
     }
 }
