@@ -24,6 +24,8 @@ class AdditionalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.backgroundColor = UIColor.white
+        
         // the necessary parameters to set the checkboxes
         self.tableView.isEditing = true
         self.tableView.allowsMultipleSelectionDuringEditing = true
@@ -143,6 +145,10 @@ extension AdditionalViewController: UITableViewDataSource, UITableViewDelegate {
         cell.flagCountries.text = String(countiesArr[indexPath.row].vocabularyFlagsCountriesList)
         cell.nameCountries.text = String(countiesArr[indexPath.row].vocabularyNameCountriesList)
         cell.codeCountries.text = String(countiesArr[indexPath.row].vocabularyCodeCurrencyList)
+        
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor.white
+        cell.selectedBackgroundView = bgColorView
         
             //clear arrays
             arrayFlagsCountries.removeAll()
