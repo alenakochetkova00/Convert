@@ -147,7 +147,7 @@ extension AdditionalViewController: UITableViewDataSource, UITableViewDelegate {
         cell.codeCountries.text = String(countiesArr[indexPath.row].vocabularyCodeCurrencyList)
         
         let bgColorView = UIView()
-        bgColorView.backgroundColor = UIColor.white
+        bgColorView.backgroundColor = UIColor.systemGray5
         cell.selectedBackgroundView = bgColorView
         
             //clear arrays
