@@ -8,6 +8,7 @@ class InputCurrency: UIViewController {
     @IBOutlet var nameCountries: UILabel!
     @IBOutlet var codeCountries: UILabel!
     @IBOutlet var currencyCountries: UITextField!
+    @IBOutlet var symbolCurrencyCountries: UILabel!
     
     var arrayCodeCountries = [String]()
     var arrayCurrencyCountries = [Double]()

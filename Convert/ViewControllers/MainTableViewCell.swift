@@ -9,7 +9,7 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet var codeCountries: UILabel!
     @IBOutlet var currencyCountries: UILabel!
     @IBOutlet var backgroundCurrency: UIView!
-    
+    @IBOutlet var symbolCurrency: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

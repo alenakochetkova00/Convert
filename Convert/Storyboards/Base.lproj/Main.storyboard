@@ -59,14 +59,24 @@
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cV6-Il-shR">
-                                                    <rect key="frame" x="301" y="15" width="109" height="36"/>
+                                                <view contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cV6-Il-shR">
+                                                    <rect key="frame" x="268" y="15" width="156" height="35"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1 373 973,785 " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0M-qk-dcx">
-                                                            <rect key="frame" x="3" y="10" width="98" height="18"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" text="FCFA" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTj-c9-Zz6">
+                                                            <rect key="frame" x="8" y="9" width="41" height="17"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="18" id="PlI-Ye-Cck"/>
-                                                                <constraint firstAttribute="width" constant="98" id="tK3-eV-vp6"/>
+                                                                <constraint firstAttribute="height" constant="17" id="Amr-JM-MN0"/>
+                                                                <constraint firstAttribute="width" constant="41" id="iOz-gx-zTg"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" text="10 000 000,00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0M-qk-dcx">
+                                                            <rect key="frame" x="57" y="9" width="92" height="17"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="17" id="W0i-fG-s1d"/>
+                                                                <constraint firstAttribute="width" constant="92" id="ZPD-LC-FRO"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -75,21 +85,23 @@
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="d0M-qk-dcx" secondAttribute="trailing" constant="6" id="PFA-i5-T5c"/>
-                                                        <constraint firstItem="d0M-qk-dcx" firstAttribute="top" secondItem="cV6-Il-shR" secondAttribute="top" constant="10" id="Slh-GB-kk6"/>
-                                                        <constraint firstAttribute="width" constant="109" id="at4-lb-Qi9"/>
-                                                        <constraint firstAttribute="height" constant="36" id="sgN-FR-qEE"/>
+                                                        <constraint firstItem="d0M-qk-dcx" firstAttribute="leading" secondItem="jTj-c9-Zz6" secondAttribute="trailing" constant="8" id="3Oq-TP-Ddh"/>
+                                                        <constraint firstAttribute="width" constant="156" id="ZqL-7a-djZ"/>
+                                                        <constraint firstAttribute="height" constant="35" id="fy3-pP-VZy"/>
+                                                        <constraint firstItem="d0M-qk-dcx" firstAttribute="top" secondItem="cV6-Il-shR" secondAttribute="top" constant="9" id="rzv-Sa-SBT"/>
+                                                        <constraint firstItem="jTj-c9-Zz6" firstAttribute="top" secondItem="cV6-Il-shR" secondAttribute="top" constant="9" id="sRU-zX-LVI"/>
+                                                        <constraint firstAttribute="trailing" secondItem="d0M-qk-dcx" secondAttribute="trailing" constant="7" id="us1-8T-qUu"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="MDO-sN-Mir" firstAttribute="top" secondItem="dC5-Pf-pJP" secondAttribute="topMargin" constant="1" id="BL9-6C-FR6"/>
                                                 <constraint firstItem="2ID-0e-6oD" firstAttribute="leading" secondItem="MDO-sN-Mir" secondAttribute="trailing" constant="8" symbolic="YES" id="Jjq-SM-2sz"/>
-                                                <constraint firstItem="cV6-Il-shR" firstAttribute="top" secondItem="dC5-Pf-pJP" secondAttribute="topMargin" constant="4" id="TfU-C5-H2m"/>
+                                                <constraint firstItem="cV6-Il-shR" firstAttribute="top" secondItem="dC5-Pf-pJP" secondAttribute="top" constant="15" id="MsP-dP-fjk"/>
                                                 <constraint firstItem="2ID-0e-6oD" firstAttribute="top" secondItem="dC5-Pf-pJP" secondAttribute="topMargin" constant="4" id="VcV-Dh-j95"/>
                                                 <constraint firstItem="bR3-Rf-zvv" firstAttribute="top" secondItem="2ID-0e-6oD" secondAttribute="bottom" constant="2" id="d1i-WA-fds"/>
-                                                <constraint firstItem="cV6-Il-shR" firstAttribute="trailing" secondItem="dC5-Pf-pJP" secondAttribute="trailingMargin" id="kdS-bE-tq0"/>
                                                 <constraint firstItem="bR3-Rf-zvv" firstAttribute="leading" secondItem="MDO-sN-Mir" secondAttribute="trailing" constant="8" symbolic="YES" id="leW-sx-zKb"/>
+                                                <constraint firstAttribute="trailing" secondItem="cV6-Il-shR" secondAttribute="trailing" constant="6" id="v68-7d-TkU"/>
                                                 <constraint firstItem="MDO-sN-Mir" firstAttribute="leading" secondItem="dC5-Pf-pJP" secondAttribute="leadingMargin" id="yXM-DS-EQS"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -100,6 +112,7 @@
                                             <outlet property="currencyCountries" destination="d0M-qk-dcx" id="xoN-RI-pKo"/>
                                             <outlet property="flagCountries" destination="MDO-sN-Mir" id="vJX-vo-xnj"/>
                                             <outlet property="nameCountries" destination="bR3-Rf-zvv" id="r6p-fl-HBK"/>
+                                            <outlet property="symbolCurrency" destination="jTj-c9-Zz6" id="Opn-Wa-tkt"/>
                                             <segue destination="rZB-gq-wun" kind="presentation" id="1eN-n4-G0Y"/>
                                         </connections>
                                     </tableViewCell>
@@ -135,7 +148,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YFN-xH-M4u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6214.5038167938928" y="42.95774647887324"/>
+            <point key="canvasLocation" x="6213.4883720930229" y="42.489270386266099"/>
         </scene>
         <!--Input Currency-->
         <scene sceneID="Oun-Iw-8bd">
@@ -205,7 +218,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fqi-dQ-kYy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6214.5038167938928" y="721.83098591549299"/>
+            <point key="canvasLocation" x="6213.4883720930229" y="721.67381974248929"/>
         </scene>
         <!--Выберите валюту-->
         <scene sceneID="Vrc-Eb-8Ct">
@@ -361,7 +374,7 @@
     <color key="tintColor" systemColor="systemOrangeColor"/>
     <resources>
         <image name="Frame 30 (2)" width="1170" height="2532"/>
-        <image name="pencil.circle" catalog="system" width="128" height="123"/>
+        <image name="pencil.circle" catalog="system" width="32" height="32"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

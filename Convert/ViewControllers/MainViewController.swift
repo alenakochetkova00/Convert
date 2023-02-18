@@ -100,11 +100,56 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellOnMainScreen", for: indexPath) as! MainTableViewCell
         
+        func getSymbolForCurrencyCode(code: String) -> String {
+            var candidates: [String] = []
+            let locales: [String] = NSLocale.availableLocaleIdentifiers
+            for localeID in locales {
+                guard let symbol = findMatchingSymbol(localeID: localeID, currencyCode: code) else {
+                    continue
+                }
+                if symbol.count == 1 {
+                    return symbol
+                }
+                candidates.append(symbol)
+            }
+            let sorted = sortAscByLength(list: candidates)
+            if sorted.count < 1 {
+                return ""
+            }
+            return sorted[0]
+        }
+
+        func findMatchingSymbol(localeID: String, currencyCode: String) -> String? {
+            let locale = Locale(identifier: localeID as String)
+            guard let code = locale.currencyCode else {
+                return nil
+            }
+            if code != currencyCode {
+                return nil
+            }
+            guard let symbol = locale.currencySymbol else {
+                return nil
+            }
+            return symbol
+        }
+
+        func sortAscByLength(list: [String]) -> [String] {
+            return list.sorted(by: { $0.count < $1.count })
+        }
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.groupingSeparator = " "
+        formatter.decimalSeparator = ","
+        formatter.minimumFractionDigits = 2
+        formatter.maximumFractionDigits = 2
+        
         cell.flagCountries.text = flag[indexPath.row] 
         cell.nameCountries.text = name[indexPath.row]
         cell.codeCountries.text = codes[indexPath.row]
-        cell.currencyCountries.text = String(Float32(currency[indexPath.row] * usd).formattedWithSeparator) + " "
-       
+        cell.currencyCountries.text = formatter.string(for: Float32(currency[indexPath.row] * usd))
+        cell.symbolCurrency.text = getSymbolForCurrencyCode(code: codes[indexPath.row])
+        
         return cell
     }
     
@@ -137,21 +182,6 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
             
         }
     }
-}
-
-
-// MARK: - Tools needed to format data
-extension Formatter {
-    static let withSeparator: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.groupingSeparator = " "
-        return formatter
-    }()
-}
-
-extension Numeric {
-    var formattedWithSeparator: String { Formatter.withSeparator.string(for: self) ?? "" }
 }
 
 
