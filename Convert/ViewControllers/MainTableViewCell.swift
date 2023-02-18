@@ -8,14 +8,14 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet var nameCountries: UILabel!
     @IBOutlet var codeCountries: UILabel!
     @IBOutlet var currencyCountries: UILabel!
-    @IBOutlet var backgroundCurrency: UIView!
     @IBOutlet var symbolCurrency: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        // set the parameters for the background when displaying the currency
-        backgroundCurrency.layer.cornerRadius = 10
+        currencyCountries.sizeToFit()
+        symbolCurrency.sizeToFit()
+        
         currencyCountries.superview?.bringSubviewToFront(currencyCountries)
         
     }
