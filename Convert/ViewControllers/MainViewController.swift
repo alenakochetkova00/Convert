@@ -16,9 +16,8 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // set table view color
         self.tableView.backgroundColor = UIColor.white
-    
-        self.tableView.reloadData()
         
         // if there is no internet, display alert and close the program
         if NetworkMonitor.shared.isConnected {
@@ -43,7 +42,6 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.tableView.reloadData()
     }
     
@@ -89,17 +87,21 @@ class MainViewController: UIViewController {
 // MARK: - Table View Controller (value output)
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     
+    // cell width
    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 65
     }
     
+    // number of cells
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return flag.count
     }
     
+    // cell filling
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellOnMainScreen", for: indexPath) as! MainTableViewCell
         
+        // getting the currency symbol
         func getSymbolForCurrencyCode(code: String) -> String {
             var candidates: [String] = []
             let locales: [String] = NSLocale.availableLocaleIdentifiers
@@ -137,6 +139,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
             return list.sorted(by: { $0.count < $1.count })
         }
         
+        // set the currency output format
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         formatter.groupingSeparator = " "
@@ -144,6 +147,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         formatter.minimumFractionDigits = 2
         formatter.maximumFractionDigits = 2
         
+        // fill cells with data
         cell.flagCountries.text = flag[indexPath.row] 
         cell.nameCountries.text = name[indexPath.row]
         cell.codeCountries.text = codes[indexPath.row]
@@ -153,11 +157,12 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    // when clicking on a cell, the background does not stick
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    // removing Data from a TableView
+    // removing data from a TableView
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }

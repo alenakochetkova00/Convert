@@ -17,9 +17,6 @@ class AdditionalViewController: UIViewController, UISearchBarDelegate, UISearchC
     // initialize variables
     var countiesArr = [Country]()
     var filterCountiesArr = [Country]()
-   
-    var searchMaterial = [Country]()
-    var searching = false
     
     var arrayCodeCountries = [String]()
     var arrayNamesCountries = [String]()
@@ -29,6 +26,7 @@ class AdditionalViewController: UIViewController, UISearchBarDelegate, UISearchC
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // set table view color
         self.tableView.backgroundColor = UIColor.white
         
         // the necessary parameters to set the checkboxes
@@ -41,15 +39,15 @@ class AdditionalViewController: UIViewController, UISearchBarDelegate, UISearchC
         getData()
     }
     
+    // create a search bar
     private func searchBarSetup() {
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
         navigationItem.searchController = searchController
     }
     
-    
+    // make the search bar always visible (no swipe)
     func visibilitySearchBar() {
-        
         let searchController = UISearchController(searchResultsController: nil)
         navigationItem.hidesSearchBarWhenScrolling = false
         navigationItem.searchController = searchController
@@ -101,6 +99,7 @@ class AdditionalViewController: UIViewController, UISearchBarDelegate, UISearchC
                                 
                                 for (key, value) in array {
                                     
+                                    // write the received data to a separate dictionary
                                     var entity = CurrencyConversion()
                                     entity.code = key
                                     entity.value = value
@@ -141,8 +140,8 @@ class AdditionalViewController: UIViewController, UISearchBarDelegate, UISearchC
             task.resume()
         }
     
+    // when you click on the "search" button, you will go to the navigation controller
     func searchBarSearchButtonClicked(_ seachBar: UISearchBar) {
-        
         let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NavigationController") as! NavigationController
         self.present(loginVC, animated: true, completion: nil)
     }
@@ -159,43 +158,49 @@ class AdditionalViewController: UIViewController, UISearchBarDelegate, UISearchC
 // MARK: - Table View Controller (value output)
 extension AdditionalViewController: UITableViewDataSource, UITableViewDelegate {
     
+    // cell width
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 65
     }
     
+    // number of cells
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return countiesArr.count
     }
     
+    // filling cells with data
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AdditionalTableViewCell
         
+        // fill in the cells
         cell.flagCountries.text = String(countiesArr[indexPath.row].vocabularyFlagsCountriesList)
         cell.nameCountries.text = String(countiesArr[indexPath.row].vocabularyNameCountriesList)
         cell.codeCountries.text = String(countiesArr[indexPath.row].vocabularyCodeCurrencyList)
         
+        // cell highlight color
         let bgColorView = UIView()
         bgColorView.backgroundColor = UIColor.systemGray5
         cell.selectedBackgroundView = bgColorView
         
-            //clear arrays
-            arrayFlagsCountries.removeAll()
-            arrayNamesCountries.removeAll()
-            arrayCodeCountries.removeAll()
-            arrayCurrencyCountries.removeAll()
-            
-            if UserDefaults.standard.object(forKey: "flag") != nil {
-                arrayFlagsCountries = UserDefaults.standard.object(forKey: "flag") as? [String] ?? []
-            }
-            if UserDefaults.standard.object(forKey: "name") != nil {
-                arrayNamesCountries = UserDefaults.standard.object(forKey: "name") as? [String] ?? []
-            }
-            if UserDefaults.standard.object(forKey: "code") != nil {
-                arrayCodeCountries = UserDefaults.standard.object(forKey: "code") as? [String] ?? []
-            }
-            if UserDefaults.standard.object(forKey: "currency") != nil {
-                arrayCurrencyCountries = UserDefaults.standard.object(forKey: "currency") as? [Double] ?? []
-            }
+        //clear arrays
+        arrayFlagsCountries.removeAll()
+        arrayNamesCountries.removeAll()
+        arrayCodeCountries.removeAll()
+        arrayCurrencyCountries.removeAll()
+        
+        // fill arrays with data from memory
+        if UserDefaults.standard.object(forKey: "flag") != nil {
+            arrayFlagsCountries = UserDefaults.standard.object(forKey: "flag") as? [String] ?? []
+        }
+        if UserDefaults.standard.object(forKey: "name") != nil {
+            arrayNamesCountries = UserDefaults.standard.object(forKey: "name") as? [String] ?? []
+        }
+        if UserDefaults.standard.object(forKey: "code") != nil {
+            arrayCodeCountries = UserDefaults.standard.object(forKey: "code") as? [String] ?? []
+        }
+        if UserDefaults.standard.object(forKey: "currency") != nil {
+            arrayCurrencyCountries = UserDefaults.standard.object(forKey: "currency") as? [Double] ?? []
+        }
         
         // the values ​​previously selected by the user are ticked
         for name in arrayNamesCountries {
@@ -206,8 +211,10 @@ extension AdditionalViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    // if the user has selected a cell
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        // if the array does not contain the same country, we add it to the array
         if !arrayNamesCountries.contains(countiesArr[indexPath.row].vocabularyNameCountriesList) {
             arrayCodeCountries.insert(countiesArr[indexPath.row].vocabularyCodeCurrencyList, at: 0)
             arrayCurrencyCountries.insert(countiesArr[indexPath.row].vocabularyCurrencyCountriesList, at: 0)
@@ -215,6 +222,7 @@ extension AdditionalViewController: UITableViewDataSource, UITableViewDelegate {
             arrayFlagsCountries.insert(countiesArr[indexPath.row].vocabularyFlagsCountriesList, at: 0)
         }
         
+        // store an array
         UserDefaults.standard.setValue(arrayFlagsCountries, forKey: "flag")
         UserDefaults.standard.setValue(arrayNamesCountries, forKey: "name")
         UserDefaults.standard.setValue(arrayCodeCountries, forKey: "code")
@@ -223,15 +231,19 @@ extension AdditionalViewController: UITableViewDataSource, UITableViewDelegate {
         print("connected", arrayNamesCountries)
     }
     
+    // if the user has not selected a cell
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         
-        let i = arrayNamesCountries.firstIndex(of: countiesArr[indexPath.row].vocabularyNameCountriesList)
+        // if there is a given element in the array, then fix its index
+        let index = arrayNamesCountries.firstIndex(of: countiesArr[indexPath.row].vocabularyNameCountriesList)
         
-        arrayCodeCountries.remove(at: i!)
-        arrayCurrencyCountries.remove(at: i!)
-        arrayNamesCountries.remove(at: i!)
-        arrayFlagsCountries.remove(at: i!)
+        // remove elements from arrays at this index
+        arrayCodeCountries.remove(at: index!)
+        arrayCurrencyCountries.remove(at: index!)
+        arrayNamesCountries.remove(at: index!)
+        arrayFlagsCountries.remove(at: index!)
         
+        // write arrays to device memory
         UserDefaults.standard.setValue(arrayFlagsCountries, forKey: "flag")
         UserDefaults.standard.setValue(arrayNamesCountries, forKey: "name")
         UserDefaults.standard.setValue(arrayCodeCountries, forKey: "code")
@@ -241,6 +253,7 @@ extension AdditionalViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+// MARK: - We form the work of the search bar
 extension AdditionalViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -250,7 +263,6 @@ extension AdditionalViewController: UISearchResultsUpdating {
             countiesArr = filterCountiesArr
         } else {
             countiesArr = filterCountiesArr.filter{ $0.vocabularyNameCountriesList.contains(searchText) }
-
         }
         tableView.reloadData()
     }
